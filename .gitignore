@@ -1,5 +1,6 @@
 tests/data/output.wav
 *.DS_Store
+.ropeproject
 
 # Inactive notebooks
 webbook/resources/exploring-raga.ipynb
@@ -33,7 +34,7 @@ var/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos 
+#  before PyInstaller builds the exe, so as to inject date/other infos
 into it.
 *.manifest
 *.spec
@@ -68,6 +69,7 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+webbook/corpora_and_datasets/.ipynb_checkpoints
 
 # Project specific directories
 output/
@@ -83,3 +85,4 @@ webbook/_build/
 # old structure
 webbook/carnatic/
 webbook/hindustani/
+webbook/data
