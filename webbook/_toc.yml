@@ -1,58 +1,59 @@
 format: jb-book
 root: landing
 parts:
-- caption: Introduction
-  chapters:
-    - file: introduction/setup
-    - file: introduction/python
-    - file: introduction/compiam
+  - caption: Introduction
+    chapters:
+      - file: introduction/setup
+      - file: introduction/python
+      - file: introduction/compiam
 
-- caption: Indian Art Music
-  chapters:
-    - file: indian_art_music/iam
-      title: What is Indian Art Music?
-    - file: indian_art_music/carnatic-music
-    - file: indian_art_music/hindustani-music
+  - caption: Indian Art Music
+    chapters:
+      - file: indian_art_music/iam
+        title: What is Indian Art Music?
+      - file: indian_art_music/carnatic-music
+      - file: indian_art_music/hindustani-music
 
-- caption: Corpora and Datasets
-  chapters:
-    - file: corpora_and_datasets/corpora
-    - file: corpora_and_datasets/datasets
+  - caption: Corpora and Datasets
+    chapters:
+      - file: corpora_and_datasets/corpora
+      - file: corpora_and_datasets/datasets
+      - file: corpora_and_datasets/audio-visual
 
-- caption: Melodic Analysis
-  chapters:
-    - file: melodic_analysis/tonic-identification
-    - file: melodic_analysis/pitch-extraction
-    - file: melodic_analysis/melodic-transcription
-    - file: melodic_analysis/melodic-pattern-discovery
-    - file: melodic_analysis/raga-recognition
+  - caption: Melodic Analysis
+    chapters:
+      - file: melodic_analysis/tonic-identification
+      - file: melodic_analysis/pitch-extraction
+      - file: melodic_analysis/melodic-transcription
+      - file: melodic_analysis/melodic-pattern-discovery
+      - file: melodic_analysis/raga-recognition
 
-- caption: Rhythmic Analysis
-  chapters:
-    - file: rhythmic_analysis/meter_analysis
-    - file: rhythmic_analysis/percussion-transcription
+  - caption: Rhythmic Analysis
+    chapters:
+      - file: rhythmic_analysis/meter_analysis
+      - file: rhythmic_analysis/percussion-transcription
 
-- caption: Structure Analysis
-  chapters:
-    - file: structure_analysis/music-segmentation
+  - caption: Structure Analysis
+    chapters:
+      - file: structure_analysis/music-segmentation
 
-- caption: Timbre Analysis
-  chapters:
-    - file: timbre_analysis/stroke-classification
+  - caption: Timbre Analysis
+    chapters:
+      - file: timbre_analysis/stroke-classification
 
-- caption: Music Source Separation
-  chapters:
-    - file: separation/singing-voice-extraction
+  - caption: Music Source Separation
+    chapters:
+      - file: separation/singing-voice-extraction
 
-- caption: Demos
-  chapters:
-    #- file: melodic_analysis/melodic-pattern-discovery
-    - file: resources/exploring-performance
-    #- file: melodic_analysis/exploring-raga  # To run locally
+  - caption: Demos
+    chapters:
+      #- file: melodic_analysis/melodic-pattern-discovery
+      - file: resources/exploring-performance
+      #- file: melodic_analysis/exploring-raga  # To run locally
 
-- caption: Resources
-  chapters:    
-    - file: resources/references
-    - file: resources/open-challenges
-    - file: resources/acknowledgements
-    - file: resources/citing
+  - caption: Resources
+    chapters:
+      - file: resources/references
+      - file: resources/open-challenges
+      - file: resources/acknowledgements
+      - file: resources/citing
