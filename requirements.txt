@@ -10,6 +10,7 @@ numpy<2  # Avoiding incompatibilities for now
 librosa
 matplotlib
 lxml[html_clean]
+opencv-python
 
 
 ### Dependencies installed in deployment action
