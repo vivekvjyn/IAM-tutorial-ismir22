@@ -63,7 +63,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Pitch extraction" href="pitch-extraction.html" />
-    <link rel="prev" title="Datasets" href="../corpora_and_datasets/datasets.html" />
+    <link rel="prev" title="Saraga Audiovisual" href="../corpora_and_datasets/audiovisual.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -197,6 +197,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../corpora_and_datasets/corpora.html">Accessing the Dunya Corpora</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../corpora_and_datasets/datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../corpora_and_datasets/audiovisual.html">Saraga Audiovisual</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Melodic Analysis</span></p>
 <ul class="current nav bd-sidenav">
@@ -224,10 +225,6 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../separation/singing-voice-extraction.html">Singing voice extraction</a></li>
 
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Demos</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../resources/exploring-performance.html">Exploring Carnatic Performance</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul class="nav bd-sidenav">
@@ -494,7 +491,7 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="tonic-identification">
 <span id="id1"></span><h1>Tonic identification<a class="headerlink" href="#tonic-identification" title="Permalink to this heading">#</a></h1>
 <p>As mentioned in the <a class="reference internal" href="../indian_art_music/carnatic-music.html#carnatic-tambura-drone"><span class="std std-ref">introduction of the tambūrā drone</span></a>, the sa played by the tambūrā is very important from a computational analysis point of view, because it provides information to locate the sa of the melody (and also the rest of svāras in the rāga), while it is also very useful to normalise the melodic lines for a better processing and understanding.</p>
-<p>Several works have been proposed aiming at automatically identifying the tonic from Carnatic and Hindustani recordings <span id="id2">[<a class="reference internal" href="../resources/references.html#id30" title="A. Bellur, V. Ishwar, and X. Serra. A knowledge based signal processing approach to tonic identification in indian classical music. In 2nd CompMusic Workshop, 113–118. 2012.">BIS12</a>, <a class="reference internal" href="../resources/references.html#id29" title="S. Gulati, J. Salamon, and X. Serra. A two-stage approach for tonic identification in indian art music. In 2nd CompMusic Workshop, 119–127. 2012.">GSS12</a>, <a class="reference internal" href="../resources/references.html#id28" title="H. G. Ranjani, S. Arthi, and T. V. Sreenivas. Carnatic music analysis: shadja, swara identification and raga verification in alapana using stochastic models. In Applications of Signal Processing to Audio and Acoustics (WASPAA), 29–32. 2011.">RAS11</a>, <a class="reference internal" href="../resources/references.html#id31" title="Justin Salamon, Sankalp Gulati, and Xavier Serra. A multipitch approach to tonic identification in indian classical music. In In Proc. of the 13th International Society for Music Information Retrieval Conference (ISMIR), Porto, Portugal, 499–504. 2012.">SGS12</a>]</span>, being all of these methods knowledge-based and all operating on diverse features extracted from the pitch curves. The pitch curves are typically automatically extracted from the music signals (see the <a class="reference internal" href="pitch-extraction.html#melody-extraction"><span class="std std-ref">pitch extraction walkthrough</span></a> for further detail). More recently, a DL-based approach for the said task has been proposed <span id="id3">[<a class="reference internal" href="../resources/references.html#id33" title="Yeshwant Singh and Anupam Biswas. Deep learning based tonic identification in indian classical music. In In proc. of the 5th Conference on Information and Communication Technology (CICT), 1-6. 2021. doi:10.1109/CICT53865.2020.9672343.">SB21</a>]</span>.</p>
+<p>Several works have been proposed aiming at automatically identifying the tonic from Carnatic and Hindustani recordings <span id="id2">[<a class="reference internal" href="../resources/references.html#id31" title="A. Bellur, V. Ishwar, and X. Serra. A knowledge based signal processing approach to tonic identification in indian classical music. In 2nd CompMusic Workshop, 113–118. 2012.">BIS12</a>, <a class="reference internal" href="../resources/references.html#id30" title="S. Gulati, J. Salamon, and X. Serra. A two-stage approach for tonic identification in indian art music. In 2nd CompMusic Workshop, 119–127. 2012.">GSS12</a>, <a class="reference internal" href="../resources/references.html#id29" title="H. G. Ranjani, S. Arthi, and T. V. Sreenivas. Carnatic music analysis: shadja, swara identification and raga verification in alapana using stochastic models. In Applications of Signal Processing to Audio and Acoustics (WASPAA), 29–32. 2011.">RAS11</a>, <a class="reference internal" href="../resources/references.html#id32" title="Justin Salamon, Sankalp Gulati, and Xavier Serra. A multipitch approach to tonic identification in indian classical music. In In Proc. of the 13th International Society for Music Information Retrieval Conference (ISMIR), Porto, Portugal, 499–504. 2012.">SGS12</a>]</span>, being all of these methods knowledge-based and all operating on diverse features extracted from the pitch curves. The pitch curves are typically automatically extracted from the music signals (see the <a class="reference internal" href="pitch-extraction.html#melody-extraction"><span class="std std-ref">pitch extraction walkthrough</span></a> for further detail). More recently, a DL-based approach for the said task has been proposed <span id="id3">[<a class="reference internal" href="../resources/references.html#id34" title="Yeshwant Singh and Anupam Biswas. Deep learning based tonic identification in indian classical music. In In proc. of the 5th Conference on Information and Communication Technology (CICT), 1-6. 2021. doi:10.1109/CICT53865.2020.9672343.">SB21</a>]</span>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Although the term “tonic” does not appear in Indian Art Music, the sa (ṣaḍja) pitch position is often referred to as the “tonic” in MIR literature, due to similarities between the two concepts.</p>
@@ -891,12 +888,12 @@ Extracted tonic: 138.8064422607422
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../corpora_and_datasets/datasets.html"
+       href="../corpora_and_datasets/audiovisual.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Datasets</p>
+        <p class="prev-next-title">Saraga Audiovisual</p>
       </div>
     </a>
     <a class="right-next"
