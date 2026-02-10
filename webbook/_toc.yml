@@ -18,7 +18,7 @@ parts:
   chapters:
     - file: corpora_and_datasets/corpora
     - file: corpora_and_datasets/datasets
-    - file: corpora_and_datasets/audio-visual
+    - file: corpora_and_datasets/audiovisual
 
 - caption: Melodic Analysis
   chapters:
