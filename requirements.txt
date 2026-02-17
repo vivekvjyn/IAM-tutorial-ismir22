@@ -11,6 +11,7 @@ librosa
 matplotlib
 lxml[html_clean]
 opencv-python
+wget
 
 
 ### Dependencies installed in deployment action
