@@ -55,7 +55,6 @@ exclude_patterns:
   - webbook/hindustani/*
   - webbook/separation/misc/*
   - webbook/resources/exploring-raga.ipynb
-  - webbook/resources/exploring-raga.ipynb
   - webbook/separation/misc/carnatic-separation-leakage-finetune.ipynb
   - webbook/separation/misc/carnatic-separation-leakage.ipynb
   - webbook/separation/misc/carnatic-separation-spleeter.ipynb
