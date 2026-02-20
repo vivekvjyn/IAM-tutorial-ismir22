@@ -32,6 +32,7 @@ parts:
   chapters:
     - file: rhythmic_analysis/meter_analysis
     - file: rhythmic_analysis/percussion-transcription
+    - file: rhythmic_analysis/tcn_carnatic
 
 - caption: Structure Analysis
   chapters:
