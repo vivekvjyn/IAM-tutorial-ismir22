@@ -523,7 +523,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;FTANetCarnatic*&#39;, &#39;FTAResNetCarnatic*&#39;, &#39;Melodia&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pretty printing has been turned OFF
 </pre></div>
 </div>
 </div>
@@ -564,7 +564,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shape of the output pitch: (20675, 2)
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shape of the output pitch:&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">melodia_pitch_track</span><span class="p">))</span>
+
+<span class="ne">NameError</span>: name &#39;np&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -577,11 +582,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.0,
- 0.0029024943310657597,
- 0.005804988662131519,
- 0.008707482993197279,
- 0.011609977324263039]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pretty printing has been turned ON
 </pre></div>
 </div>
 </div>
@@ -594,7 +595,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[220.00181579589844, 222.55812072753906, 222.55812072753906, 0.0, 0.0]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pretty printing has been turned OFF
 </pre></div>
 </div>
 </div>
@@ -632,13 +633,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;melody:deepsrgm&#39;,
- &#39;melody:ftanet-carnatic&#39;,
- &#39;melody:ftaresnet-carnatic-violin&#39;,
- &#39;melody:cae-carnatic&#39;,
- &#39;structure:dhrupad-bandish-segmentation&#39;,
- &#39;separation:cold-diff-sep&#39;,
- &#39;separation:mixer-model&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pretty printing has been turned ON
 </pre></div>
 </div>
 </div>
@@ -653,6 +648,174 @@ document.write(`
 <span class="c1"># Importing tensorflow and disabling GPU usage</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">set_visible_devices</span><span class="p">([],</span> <span class="s2">&quot;GPU&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">RecursionError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;TF_CPP_MIN_LOG_LEVEL&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;3&quot;</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Importing tensorflow and disabling GPU usage</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">set_visible_devices</span><span class="p">([],</span> <span class="s2">&quot;GPU&quot;</span><span class="p">)</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.11.14</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">tensorflow</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">48</span>
+<span class="g g-Whitespace">     </span><span class="mi">45</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.python</span><span class="w"> </span><span class="kn">import</span> <span class="n">tf2</span> <span class="k">as</span> <span class="n">_tf2</span>
+<span class="g g-Whitespace">     </span><span class="mi">46</span> <span class="n">_tf2</span><span class="o">.</span><span class="n">enable</span><span class="p">()</span>
+<span class="ne">---&gt; </span><span class="mi">48</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow._api.v2</span><span class="w"> </span><span class="kn">import</span> <span class="n">__internal__</span>
+<span class="g g-Whitespace">     </span><span class="mi">49</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow._api.v2</span><span class="w"> </span><span class="kn">import</span> <span class="n">__operators__</span>
+<span class="g g-Whitespace">     </span><span class="mi">50</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow._api.v2</span><span class="w"> </span><span class="kn">import</span> <span class="n">audio</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.11.14</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">tensorflow</span><span class="o">/</span><span class="n">_api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">__internal__</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">8</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Public API for tf._api.v2.__internal__ namespace</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">_sys</span>
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow._api.v2.__internal__</span><span class="w"> </span><span class="kn">import</span> <span class="n">autograph</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow._api.v2.__internal__</span><span class="w"> </span><span class="kn">import</span> <span class="n">decorator</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow._api.v2.__internal__</span><span class="w"> </span><span class="kn">import</span> <span class="n">dispatch</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.11.14</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">tensorflow</span><span class="o">/</span><span class="n">_api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">__internal__</span><span class="o">/</span><span class="n">autograph</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">8</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Public API for tf._api.v2.__internal__.autograph namespace</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">_sys</span>
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.python.autograph.core.ag_ctx</span><span class="w"> </span><span class="kn">import</span> <span class="n">control_status_ctx</span> <span class="c1"># line: 34</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.python.autograph.impl.api</span><span class="w"> </span><span class="kn">import</span> <span class="n">tf_convert</span> <span class="c1"># line: 493</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.11.14</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">tensorflow</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">autograph</span><span class="o">/</span><span class="n">core</span><span class="o">/</span><span class="n">ag_ctx</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">21</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
+<span class="ne">---&gt; </span><span class="mi">21</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.python.autograph.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">ag_logging</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.python.util.tf_export</span><span class="w"> </span><span class="kn">import</span> <span class="n">tf_export</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="n">stacks</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">local</span><span class="p">()</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.11.14</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">tensorflow</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">autograph</span><span class="o">/</span><span class="n">utils</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">17</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Copyright 2016 The TensorFlow Authors. All Rights Reserved.</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1">#</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="c1"># limitations under the License.</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="c1"># ==============================================================================</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Utility module that contains APIs usable in the generated code.&quot;&quot;&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">17</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.python.autograph.utils.context_managers</span><span class="w"> </span><span class="kn">import</span> <span class="n">control_dependency_on_returns</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.python.autograph.utils.misc</span><span class="w"> </span><span class="kn">import</span> <span class="n">alias_tensors</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.python.autograph.utils.tensor_list</span><span class="w"> </span><span class="kn">import</span> <span class="n">dynamic_list_append</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.11.14</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">tensorflow</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">autograph</span><span class="o">/</span><span class="n">utils</span><span class="o">/</span><span class="n">context_managers</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">19</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Various context managers.&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="kn">import</span><span class="w"> </span><span class="nn">contextlib</span>
+<span class="ne">---&gt; </span><span class="mi">19</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.python.framework</span><span class="w"> </span><span class="kn">import</span> <span class="n">ops</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.python.ops</span><span class="w"> </span><span class="kn">import</span> <span class="n">tensor_array_ops</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="k">def</span><span class="w"> </span><span class="nf">control_dependency_on_returns</span><span class="p">(</span><span class="n">return_value</span><span class="p">):</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.11.14</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">tensorflow</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">framework</span><span class="o">/</span><span class="n">ops</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">45</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.python</span><span class="w"> </span><span class="kn">import</span> <span class="n">tf2</span>
+<span class="g g-Whitespace">     </span><span class="mi">44</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.python.client</span><span class="w"> </span><span class="kn">import</span> <span class="n">pywrap_tf_session</span>
+<span class="ne">---&gt; </span><span class="mi">45</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.python.eager</span><span class="w"> </span><span class="kn">import</span> <span class="n">context</span>
+<span class="g g-Whitespace">     </span><span class="mi">46</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.python.eager</span><span class="w"> </span><span class="kn">import</span> <span class="n">core</span>
+<span class="g g-Whitespace">     </span><span class="mi">47</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.python.eager</span><span class="w"> </span><span class="kn">import</span> <span class="n">monitoring</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.11.14</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">tensorflow</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">eager</span><span class="o">/</span><span class="n">context</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">37</span>
+<span class="g g-Whitespace">     </span><span class="mi">35</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.python.client</span><span class="w"> </span><span class="kn">import</span> <span class="n">pywrap_tf_session</span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.python.eager</span><span class="w"> </span><span class="kn">import</span> <span class="n">cancellation</span>
+<span class="ne">---&gt; </span><span class="mi">37</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.python.eager</span><span class="w"> </span><span class="kn">import</span> <span class="n">execute</span>
+<span class="g g-Whitespace">     </span><span class="mi">38</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.python.eager</span><span class="w"> </span><span class="kn">import</span> <span class="n">executor</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.python.eager</span><span class="w"> </span><span class="kn">import</span> <span class="n">monitoring</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.11.14</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">tensorflow</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">eager</span><span class="o">/</span><span class="n">execute</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">21</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.python</span><span class="w"> </span><span class="kn">import</span> <span class="n">pywrap_tfe</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.python.eager</span><span class="w"> </span><span class="kn">import</span> <span class="n">core</span>
+<span class="ne">---&gt; </span><span class="mi">21</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.python.framework</span><span class="w"> </span><span class="kn">import</span> <span class="n">dtypes</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.python.framework</span><span class="w"> </span><span class="kn">import</span> <span class="n">tensor_conversion_registry</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.python.framework</span><span class="w"> </span><span class="kn">import</span> <span class="n">tensor_shape</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.11.14</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">tensorflow</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">framework</span><span class="o">/</span><span class="n">dtypes</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">21</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="kn">import</span><span class="w"> </span><span class="nn">dataclasses</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Type</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="ne">---&gt; </span><span class="mi">21</span> <span class="kn">import</span><span class="w"> </span><span class="nn">ml_dtypes</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.core.framework</span><span class="w"> </span><span class="kn">import</span> <span class="n">types_pb2</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.11.14</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">ml_dtypes</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">40</span>
+<span class="g g-Whitespace">     </span><span class="mi">38</span> <span class="kn">from</span><span class="w"> </span><span class="nn">ml_dtypes._custom_floats</span><span class="w"> </span><span class="kn">import</span> <span class="n">int4</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span> <span class="kn">from</span><span class="w"> </span><span class="nn">ml_dtypes._custom_floats</span><span class="w"> </span><span class="kn">import</span> <span class="n">uint4</span>
+<span class="ne">---&gt; </span><span class="mi">40</span> <span class="kn">from</span><span class="w"> </span><span class="nn">ml_dtypes._finfo</span><span class="w"> </span><span class="kn">import</span> <span class="n">finfo</span>
+<span class="g g-Whitespace">     </span><span class="mi">41</span> <span class="kn">from</span><span class="w"> </span><span class="nn">ml_dtypes._iinfo</span><span class="w"> </span><span class="kn">import</span> <span class="n">iinfo</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.11.14</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">ml_dtypes</span><span class="o">/</span><span class="n">_finfo</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">28</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="kn">from</span><span class="w"> </span><span class="nn">ml_dtypes._custom_floats</span><span class="w"> </span><span class="kn">import</span> <span class="n">float8_e5m2fnuz</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="ne">---&gt; </span><span class="mi">28</span> <span class="n">_bfloat16_dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">bfloat16</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span> <span class="n">_float8_e4m3b11fnuz_dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">float8_e4m3b11fnuz</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span> <span class="n">_float8_e4m3fn_dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">float8_e4m3fn</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/numpy/core/_dtype.py:46,</span> in <span class="ni">__repr__</span><span class="nt">(dtype)</span>
+<span class="g g-Whitespace">     </span><span class="mi">45</span> <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="n">dtype</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">46</span>     <span class="n">arg_str</span> <span class="o">=</span> <span class="n">_construction_repr</span><span class="p">(</span><span class="n">dtype</span><span class="p">,</span> <span class="n">include_align</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">47</span>     <span class="k">if</span> <span class="n">dtype</span><span class="o">.</span><span class="n">isalignedstruct</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">48</span>         <span class="n">arg_str</span> <span class="o">=</span> <span class="n">arg_str</span> <span class="o">+</span> <span class="s2">&quot;, align=True&quot;</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/numpy/core/_dtype.py:100,</span> in <span class="ni">_construction_repr</span><span class="nt">(dtype, include_align, short)</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>     <span class="k">return</span> <span class="n">_subarray_str</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">100</span>     <span class="k">return</span> <span class="n">_scalar_str</span><span class="p">(</span><span class="n">dtype</span><span class="p">,</span> <span class="n">short</span><span class="o">=</span><span class="n">short</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/numpy/core/_dtype.py:143,</span> in <span class="ni">_scalar_str</span><span class="nt">(dtype, short)</span>
+<span class="g g-Whitespace">    </span><span class="mi">140</span> <span class="k">elif</span> <span class="n">dtype</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">timedelta64</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">141</span>     <span class="k">return</span> <span class="s2">&quot;&#39;</span><span class="si">%s</span><span class="s2">m8</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">byteorder</span><span class="p">,</span> <span class="n">_datetime_metadata_str</span><span class="p">(</span><span class="n">dtype</span><span class="p">))</span>
+<span class="ne">--&gt; </span><span class="mi">143</span> <span class="k">elif</span> <span class="n">np</span><span class="o">.</span><span class="n">issubdtype</span><span class="p">(</span><span class="n">dtype</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">144</span>     <span class="c1"># Short repr with endianness, like &#39;&lt;f8&#39;</span>
+<span class="g g-Whitespace">    </span><span class="mi">145</span>     <span class="k">if</span> <span class="n">short</span> <span class="ow">or</span> <span class="n">dtype</span><span class="o">.</span><span class="n">byteorder</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="s1">&#39;|&#39;</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">146</span>         <span class="k">return</span> <span class="s2">&quot;&#39;</span><span class="si">%s%c%d</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">byteorder</span><span class="p">,</span> <span class="n">dtype</span><span class="o">.</span><span class="n">kind</span><span class="p">,</span> <span class="n">dtype</span><span class="o">.</span><span class="n">itemsize</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/numpy/_core/numerictypes.py:534,</span> in <span class="ni">issubdtype</span><span class="nt">(arg1, arg2)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/numpy/core/_dtype.py:46,</span> in <span class="ni">__repr__</span><span class="nt">(dtype)</span>
+<span class="g g-Whitespace">     </span><span class="mi">45</span> <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="n">dtype</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">46</span>     <span class="n">arg_str</span> <span class="o">=</span> <span class="n">_construction_repr</span><span class="p">(</span><span class="n">dtype</span><span class="p">,</span> <span class="n">include_align</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">47</span>     <span class="k">if</span> <span class="n">dtype</span><span class="o">.</span><span class="n">isalignedstruct</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">48</span>         <span class="n">arg_str</span> <span class="o">=</span> <span class="n">arg_str</span> <span class="o">+</span> <span class="s2">&quot;, align=True&quot;</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/numpy/core/_dtype.py:100,</span> in <span class="ni">_construction_repr</span><span class="nt">(dtype, include_align, short)</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>     <span class="k">return</span> <span class="n">_subarray_str</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">100</span>     <span class="k">return</span> <span class="n">_scalar_str</span><span class="p">(</span><span class="n">dtype</span><span class="p">,</span> <span class="n">short</span><span class="o">=</span><span class="n">short</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/numpy/core/_dtype.py:143,</span> in <span class="ni">_scalar_str</span><span class="nt">(dtype, short)</span>
+<span class="g g-Whitespace">    </span><span class="mi">140</span> <span class="k">elif</span> <span class="n">dtype</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">timedelta64</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">141</span>     <span class="k">return</span> <span class="s2">&quot;&#39;</span><span class="si">%s</span><span class="s2">m8</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">byteorder</span><span class="p">,</span> <span class="n">_datetime_metadata_str</span><span class="p">(</span><span class="n">dtype</span><span class="p">))</span>
+<span class="ne">--&gt; </span><span class="mi">143</span> <span class="k">elif</span> <span class="n">np</span><span class="o">.</span><span class="n">issubdtype</span><span class="p">(</span><span class="n">dtype</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">144</span>     <span class="c1"># Short repr with endianness, like &#39;&lt;f8&#39;</span>
+<span class="g g-Whitespace">    </span><span class="mi">145</span>     <span class="k">if</span> <span class="n">short</span> <span class="ow">or</span> <span class="n">dtype</span><span class="o">.</span><span class="n">byteorder</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="s1">&#39;|&#39;</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">146</span>         <span class="k">return</span> <span class="s2">&quot;&#39;</span><span class="si">%s%c%d</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">byteorder</span><span class="p">,</span> <span class="n">dtype</span><span class="o">.</span><span class="n">kind</span><span class="p">,</span> <span class="n">dtype</span><span class="o">.</span><span class="n">itemsize</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/numpy/_core/numerictypes.py:534,</span> in <span class="ni">issubdtype</span><span class="nt">(arg1, arg2)</span>
+
+    <span class="p">[</span><span class="o">...</span> <span class="n">skipping</span> <span class="n">similar</span> <span class="n">frames</span><span class="p">:</span> <span class="fm">__repr__</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">46</span> <span class="p">(</span><span class="mi">476</span> <span class="n">times</span><span class="p">),</span> <span class="n">_construction_repr</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">100</span> <span class="p">(</span><span class="mi">475</span> <span class="n">times</span><span class="p">),</span> <span class="n">_scalar_str</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">143</span> <span class="p">(</span><span class="mi">475</span> <span class="n">times</span><span class="p">),</span> <span class="n">issubdtype</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">534</span> <span class="p">(</span><span class="mi">475</span> <span class="n">times</span><span class="p">)]</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/numpy/core/_dtype.py:100,</span> in <span class="ni">_construction_repr</span><span class="nt">(dtype, include_align, short)</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>     <span class="k">return</span> <span class="n">_subarray_str</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">100</span>     <span class="k">return</span> <span class="n">_scalar_str</span><span class="p">(</span><span class="n">dtype</span><span class="p">,</span> <span class="n">short</span><span class="o">=</span><span class="n">short</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/numpy/core/_dtype.py:143,</span> in <span class="ni">_scalar_str</span><span class="nt">(dtype, short)</span>
+<span class="g g-Whitespace">    </span><span class="mi">140</span> <span class="k">elif</span> <span class="n">dtype</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">timedelta64</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">141</span>     <span class="k">return</span> <span class="s2">&quot;&#39;</span><span class="si">%s</span><span class="s2">m8</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">byteorder</span><span class="p">,</span> <span class="n">_datetime_metadata_str</span><span class="p">(</span><span class="n">dtype</span><span class="p">))</span>
+<span class="ne">--&gt; </span><span class="mi">143</span> <span class="k">elif</span> <span class="n">np</span><span class="o">.</span><span class="n">issubdtype</span><span class="p">(</span><span class="n">dtype</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">144</span>     <span class="c1"># Short repr with endianness, like &#39;&lt;f8&#39;</span>
+<span class="g g-Whitespace">    </span><span class="mi">145</span>     <span class="k">if</span> <span class="n">short</span> <span class="ow">or</span> <span class="n">dtype</span><span class="o">.</span><span class="n">byteorder</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="s1">&#39;|&#39;</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">146</span>         <span class="k">return</span> <span class="s2">&quot;&#39;</span><span class="si">%s%c%d</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">byteorder</span><span class="p">,</span> <span class="n">dtype</span><span class="o">.</span><span class="n">kind</span><span class="p">,</span> <span class="n">dtype</span><span class="o">.</span><span class="n">itemsize</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/numpy/_core/numerictypes.py:534,</span> in <span class="ni">issubdtype</span><span class="nt">(arg1, arg2)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/numpy/core/_dtype.py:46,</span> in <span class="ni">__repr__</span><span class="nt">(dtype)</span>
+<span class="g g-Whitespace">     </span><span class="mi">45</span> <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="n">dtype</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">46</span>     <span class="n">arg_str</span> <span class="o">=</span> <span class="n">_construction_repr</span><span class="p">(</span><span class="n">dtype</span><span class="p">,</span> <span class="n">include_align</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">47</span>     <span class="k">if</span> <span class="n">dtype</span><span class="o">.</span><span class="n">isalignedstruct</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">48</span>         <span class="n">arg_str</span> <span class="o">=</span> <span class="n">arg_str</span> <span class="o">+</span> <span class="s2">&quot;, align=True&quot;</span>
+
+<span class="ne">RecursionError</span>: maximum recursion depth exceeded
 </pre></div>
 </div>
 </div>
@@ -724,7 +887,18 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/462dfb7e09fb0da0d065958f7ed89b414dc920577fbf8067be6ffd69f932d314.png" src="../_images/462dfb7e09fb0da0d065958f7ed89b414dc920577fbf8067be6ffd69f932d314.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">y</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">audio_path</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">D</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">amplitude_to_db</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">librosa</span><span class="o">.</span><span class="n">stft</span><span class="p">(</span><span class="n">y</span><span class="p">)),</span> <span class="n">ref</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;example&#39; is not defined
+</pre></div>
+</div>
 </div>
 </div>
 </section>
