@@ -658,14 +658,9 @@ We define <code class="docutils literal notranslate"><span class="pre">start_tim
 <p>Run the following command to install the necessary dependencies to use TCN-Carnatic.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%capture # hide stdout
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%capture
 !pip install torch
 !pip install &quot;madmom @ git+https://github.com/vivekvjyn/madmom.git&quot;
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>UsageError: unrecognized arguments: hide stdout
 </pre></div>
 </div>
 </div>
@@ -691,37 +686,37 @@ We define <code class="docutils literal notranslate"><span class="pre">start_tim
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="nn">File /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/compiam/rhythm/meter/tcn_carnatic/__init__.py:43,</span> in <span class="ni">TCNTracker.__init__</span><span class="nt">(self, post_processor, model_version, model_path, download_link, download_checksum, gpu)</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span>     <span class="k">global</span> <span class="n">madmom</span>
-<span class="ne">---&gt; </span><span class="mi">43</span>     <span class="kn">import</span><span class="w"> </span><span class="nn">madmom</span>
-<span class="g g-Whitespace">     </span><span class="mi">44</span> <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;madmom&#39;
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">tracker</span> <span class="o">=</span> <span class="n">compiam</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s1">&#39;rhythm:tcn-carnatic&#39;</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/compiam/__init__.py:58,</span> in <span class="ni">load_model</span><span class="nt">(model_name, data_home, models_dict, version, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">56</span> <span class="n">module</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">import_module</span><span class="p">(</span><span class="n">m_dict</span><span class="p">[</span><span class="s2">&quot;module_name&quot;</span><span class="p">]),</span> <span class="n">m_dict</span><span class="p">[</span><span class="s2">&quot;class_name&quot;</span><span class="p">])</span>
-<span class="g g-Whitespace">     </span><span class="mi">57</span> <span class="n">model_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">58</span> <span class="k">return</span> <span class="n">module</span><span class="p">(</span><span class="o">**</span><span class="n">model_kwargs</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/compiam/rhythm/meter/tcn_carnatic/__init__.py:45,</span> in <span class="ni">TCNTracker.__init__</span><span class="nt">(self, post_processor, model_version, model_path, download_link, download_checksum, gpu)</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span>             <span class="kn">import</span><span class="w"> </span><span class="nn">madmom</span>
-<span class="g g-Whitespace">     </span><span class="mi">44</span>         <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">45</span>             <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">46</span>                 <span class="s2">&quot;Madmom is required to use TCNTracker. &quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">47</span>                 <span class="s2">&quot;Install compIAM with madmom support: pip install &#39;compiam[madmom]&#39;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">48</span>             <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">49</span> <span class="c1">###</span>
-<span class="g g-Whitespace">     </span><span class="mi">50</span>         <span class="k">global</span> <span class="n">MultiTracker</span><span class="p">,</span> <span class="n">PreProcessor</span><span class="p">,</span> <span class="n">joint_tracker</span><span class="p">,</span> <span class="n">sequential_tracker</span>
-
-<span class="ne">ImportError</span>: Madmom is required to use TCNTracker. Install compIAM with madmom support: pip install &#39;compiam[madmom]&#39;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|          | 0.00/832k [00:00&lt;?, ?iB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  2%|▏         | 16.4k/832k [00:00&lt;00:07, 102kiB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  5%|▍         | 41.0k/832k [00:00&lt;00:05, 142kiB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 13%|█▎        | 106k/832k [00:00&lt;00:02, 286kiB/s] 
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 30%|██▉       | 246k/832k [00:00&lt;00:01, 561kiB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 63%|██████▎   | 524k/832k [00:00&lt;00:00, 1.07MiB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 832k/832k [00:00&lt;00:00, 1.13MiB/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2026-02-23 13:14:24,189] INFO [compiam.utils.download.download_zip:95] Download complete: /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/compiam/models/rhythm/tcn-carnatic/compIAM-TCNCarnatic.zip
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2026-02-23 13:14:24,193] INFO [compiam.utils.download.extract_zip:103] Extracting /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/compiam/models/rhythm/tcn-carnatic/compIAM-TCNCarnatic.zip...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2026-02-23 13:14:24,199] INFO [compiam.utils.download.extract_zip:106] Extraction complete: Files extracted to /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/compiam/models/rhythm/tcn-carnatic
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2026-02-23 13:14:24,200] INFO [compiam.utils.download.download_remote_model:71] Files downloaded and extracted successfully.
 </pre></div>
 </div>
 </div>
@@ -736,11 +731,37 @@ Alternatively, you can pass the audio signal (<code class="docutils literal notr
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">prediction</span> <span class="o">=</span> <span class="n">tracker</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">audio_path</span><span class="p">)</span>
 
-<span class="ne">NameError</span>: name &#39;tracker&#39; is not defined
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/compiam/rhythm/meter/tcn_carnatic/__init__.py:138,</span> in <span class="ni">TCNTracker.predict</span><span class="nt">(self, input_data, sr, min_bpm, max_bpm, beats_per_bar)</span>
+<span class="g g-Whitespace">    </span><span class="mi">135</span> <span class="n">beats_act</span> <span class="o">=</span> <span class="n">output</span><span class="p">[</span><span class="s2">&quot;beats&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">136</span> <span class="n">downbeats_act</span> <span class="o">=</span> <span class="n">output</span><span class="p">[</span><span class="s2">&quot;downbeats&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">138</span> <span class="n">pred</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">post_processor</span><span class="p">(</span><span class="n">beats_act</span><span class="p">,</span> <span class="n">downbeats_act</span><span class="p">,</span> <span class="n">min_bpm</span><span class="o">=</span><span class="n">min_bpm</span><span class="p">,</span> <span class="n">max_bpm</span><span class="o">=</span><span class="n">max_bpm</span><span class="p">,</span> <span class="n">beats_per_bar</span><span class="o">=</span><span class="n">beats_per_bar</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">140</span> <span class="k">return</span> <span class="n">pred</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/compiam/rhythm/meter/tcn_carnatic/post.py:33,</span> in <span class="ni">joint_tracker</span><span class="nt">(beats_act, downbeats_act, min_bpm, max_bpm, fps, beats_per_bar)</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span> <span class="n">downbeat_tracker</span> <span class="o">=</span> <span class="n">DBNDownBeatTrackingProcessor</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span>                     <span class="n">beats_per_bar</span><span class="o">=</span><span class="n">beats_per_bar</span><span class="p">,</span> <span class="n">min_bpm</span><span class="o">=</span><span class="n">min_bpm</span><span class="p">,</span> <span class="n">max_bpm</span><span class="o">=</span><span class="n">max_bpm</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="n">fps</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span> <span class="n">combined_act</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">beats_act</span> <span class="o">-</span> <span class="n">downbeats_act</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">downbeats_act</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
+<span class="ne">---&gt; </span><span class="mi">33</span> <span class="n">pred</span> <span class="o">=</span> <span class="n">downbeat_tracker</span><span class="p">(</span><span class="n">combined_act</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">35</span> <span class="k">return</span> <span class="n">pred</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/madmom/processors.py:120,</span> in <span class="ni">Processor.__call__</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">118</span> <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">119</span>     <span class="c1"># this magic method makes a Processor callable</span>
+<span class="ne">--&gt; </span><span class="mi">120</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/madmom/features/downbeats.py:287,</span> in <span class="ni">DBNDownBeatTrackingProcessor.process</span><span class="nt">(self, activations, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">284</span> <span class="n">results</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">_process_dbn</span><span class="p">,</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hmms</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">285</span>                                           <span class="n">it</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">activations</span><span class="p">))))</span>
+<span class="g g-Whitespace">    </span><span class="mi">286</span> <span class="c1"># choose the best HMM (highest log probability)</span>
+<span class="ne">--&gt; </span><span class="mi">287</span> <span class="n">best</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">results</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">288</span> <span class="c1"># the best path through the state space</span>
+<span class="g g-Whitespace">    </span><span class="mi">289</span> <span class="n">path</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="n">best</span><span class="p">]</span>
+
+<span class="ne">ValueError</span>: setting an array element with a sequence. The requested array has an inhomogeneous shape after 2 dimensions. The detected shape was (4, 2) + inhomogeneous part.
 </pre></div>
 </div>
 </div>
