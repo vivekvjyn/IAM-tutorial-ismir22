@@ -33,7 +33,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
@@ -212,7 +212,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../rhythmic_analysis/meter_analysis.html">Meter analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rhythmic_analysis/percussion-transcription.html">Percussion transcription</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rhythmic_analysis/tcn_carnatic.html">TCN Carnatic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rhythmic_analysis/beat_tracking.html">Beat tracking</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Structure Analysis</span></p>
 <ul class="nav bd-sidenav">
@@ -562,35 +562,31 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
 <span class="n">urls</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">(</span><span class="s2">&quot;saraga_audio.zip&quot;</span><span class="p">,</span>
-     <span class="s2">&quot;https://zenodo.org/records/16411600/files/saraga</span><span class="si">%20a</span><span class="s2">udio.zip?download=1&quot;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;saraga_gesture.zip&quot;</span><span class="p">,</span>
-     <span class="s2">&quot;https://zenodo.org/records/16411600/files/saraga</span><span class="si">%20g</span><span class="s2">esture.zip?download=1&quot;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;saraga_metadata.zip&quot;</span><span class="p">,</span>
-     <span class="s2">&quot;https://zenodo.org/records/16411600/files/saraga%20metadata.zip?download=1&quot;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;saraga_visual.zip&quot;</span><span class="p">,</span>
-     <span class="s2">&quot;https://zenodo.org/records/16411600/files/saraga%20visual.zip?download=1&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"saraga_audio.zip"</span><span class="p">,</span>
+     <span class="s2">"https://zenodo.org/records/16411600/files/saraga</span><span class="si">%20a</span><span class="s2">udio.zip?download=1"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"saraga_gesture.zip"</span><span class="p">,</span>
+     <span class="s2">"https://zenodo.org/records/16411600/files/saraga</span><span class="si">%20g</span><span class="s2">esture.zip?download=1"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"saraga_metadata.zip"</span><span class="p">,</span>
+     <span class="s2">"https://zenodo.org/records/16411600/files/saraga%20metadata.zip?download=1"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"saraga_visual.zip"</span><span class="p">,</span>
+     <span class="s2">"https://zenodo.org/records/16411600/files/saraga%20visual.zip?download=1"</span><span class="p">),</span>
 <span class="p">]</span>
 
 <span class="k">for</span> <span class="n">filename</span><span class="p">,</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">urls</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Downloading </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Downloading </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">..."</span><span class="p">)</span>
     <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
 
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;../data/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">"../data/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">iter_content</span><span class="p">(</span><span class="n">chunk_size</span><span class="o">=</span><span class="mi">8192</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">chunk</span><span class="p">:</span>
                 <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All downloads complete.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"All downloads complete."</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.3) or chardet (6.0.0.post1)/charset_normalizer (3.4.4) doesn&#39;t match a supported version!
-  warnings.warn(
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading saraga_audio.zip...
 </pre></div>
 </div>
@@ -622,8 +618,8 @@ For that, we use <code class="docutils literal notranslate"><span class="pre">zi
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">saraga_folder</span> <span class="o">=</span> <span class="s2">&quot;../data/saraga&quot;</span>
-<span class="n">zip_files</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;../data/saraga_gesture.zip&quot;</span><span class="p">,</span> <span class="s2">&quot;../data/saraga_metadata.zip&quot;</span><span class="p">,</span> <span class="s2">&quot;../data/saraga_visual.zip&quot;</span><span class="p">,</span> <span class="s2">&quot;../data/saraga_audio.zip&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">saraga_folder</span> <span class="o">=</span> <span class="s2">"../data/saraga"</span>
+<span class="n">zip_files</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"../data/saraga_gesture.zip"</span><span class="p">,</span> <span class="s2">"../data/saraga_metadata.zip"</span><span class="p">,</span> <span class="s2">"../data/saraga_visual.zip"</span><span class="p">,</span> <span class="s2">"../data/saraga_audio.zip"</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -632,9 +628,9 @@ For that, we use <code class="docutils literal notranslate"><span class="pre">zi
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract each zip file to extract path</span>
 <span class="k">for</span> <span class="n">zip_file</span> <span class="ow">in</span> <span class="n">zip_files</span><span class="p">:</span>
-    <span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">zip_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zip_ref</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">zip_file</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">zip_ref</span><span class="p">:</span>
         <span class="n">zip_ref</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">saraga_folder</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Extracted </span><span class="si">{</span><span class="n">zip_file</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">saraga_folder</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Extracted </span><span class="si">{</span><span class="n">zip_file</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">saraga_folder</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -679,14 +675,14 @@ Extracted ../data/saraga_metadata.zip to ../data/saraga
 <li><p><code class="docutils literal notranslate"><span class="pre">length</span></code>: Duration of the performance</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">artists</span></code>: A dictionary with artist details:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;mbid&quot;</span><span class="p">:,</span><span class="w"> </span>
-<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:,</span><span class="w"> </span>
-<span class="w">    </span><span class="nt">&quot;instrument&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;mbid&quot;</span><span class="p">:,</span><span class="w"> </span>
-<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">"mbid"</span><span class="p">:,</span><span class="w"> </span>
+<span class="w">    </span><span class="nt">"name"</span><span class="p">:,</span><span class="w"> </span>
+<span class="w">    </span><span class="nt">"instrument"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"mbid"</span><span class="p">:,</span><span class="w"> </span>
+<span class="w">        </span><span class="nt">"name"</span><span class="p">:</span>
 <span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="nt">&quot;lead&quot;</span><span class="p">:,</span>
-<span class="w">    </span><span class="nt">&quot;attributes&quot;</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">"lead"</span><span class="p">:,</span>
+<span class="w">    </span><span class="nt">"attributes"</span><span class="p">:</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -769,10 +765,10 @@ A NumPy array of shape <code class="docutils literal notranslate"><span class="p
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define File Paths for the Relevant Performance</span>
-<span class="n">keypoints_path</span> <span class="o">=</span> <span class="s2">&quot;../data/saraga/saraga gesture/Aditi Prahlad/Ananda Natana Prakasham/singer/singer_0_753_kpts.npy&quot;</span>
-<span class="n">scores_path</span> <span class="o">=</span> <span class="s2">&quot;../data/saraga/saraga gesture/Aditi Prahlad/Ananda Natana Prakasham/singer/singer_0_753_scores.npy&quot;</span>
-<span class="n">video_path</span> <span class="o">=</span> <span class="s2">&quot;../data/saraga/saraga visual/Aditi Prahlad/Ananda Natana Prakasham/Ananda Natana Prakasham.mov&quot;</span>
-<span class="n">save_path</span> <span class="o">=</span> <span class="s2">&quot;../data/output.mp4&quot;</span>
+<span class="n">keypoints_path</span> <span class="o">=</span> <span class="s2">"../data/saraga/saraga gesture/Aditi Prahlad/Ananda Natana Prakasham/singer/singer_0_753_kpts.npy"</span>
+<span class="n">scores_path</span> <span class="o">=</span> <span class="s2">"../data/saraga/saraga gesture/Aditi Prahlad/Ananda Natana Prakasham/singer/singer_0_753_scores.npy"</span>
+<span class="n">video_path</span> <span class="o">=</span> <span class="s2">"../data/saraga/saraga visual/Aditi Prahlad/Ananda Natana Prakasham/Ananda Natana Prakasham.mov"</span>
+<span class="n">save_path</span> <span class="o">=</span> <span class="s2">"../data/output.mp4"</span>
 </pre></div>
 </div>
 </div>
@@ -821,7 +817,7 @@ A NumPy array of shape <code class="docutils literal notranslate"><span class="p
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span><span class="n">save_path</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s1">&#39;mp4v&#39;</span><span class="p">),</span> <span class="n">fps</span><span class="p">,</span> <span class="p">(</span><span class="n">frame_width</span><span class="p">,</span> <span class="n">frame_height</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span><span class="n">save_path</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s1">'mp4v'</span><span class="p">),</span> <span class="n">fps</span><span class="p">,</span> <span class="p">(</span><span class="n">frame_width</span><span class="p">,</span> <span class="n">frame_height</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -904,19 +900,19 @@ A NumPy array of shape <code class="docutils literal notranslate"><span class="p
 <p>To display the video in the notebook, we need to re-encode the output into a web-supported format (H.264).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">web_path</span> <span class="o">=</span> <span class="n">save_path</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.mp4&quot;</span><span class="p">,</span> <span class="s2">&quot;_web.mp4&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">web_path</span> <span class="o">=</span> <span class="n">save_path</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">".mp4"</span><span class="p">,</span> <span class="s2">"_web.mp4"</span><span class="p">)</span>
 
 <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span>
-    <span class="s2">&quot;ffmpeg&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;-y&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;-i&quot;</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span>
-    <span class="s2">&quot;-vcodec&quot;</span><span class="p">,</span> <span class="s2">&quot;libx264&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;-acodec&quot;</span><span class="p">,</span> <span class="s2">&quot;aac&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;-pix_fmt&quot;</span><span class="p">,</span> <span class="s2">&quot;yuv420p&quot;</span><span class="p">,</span>
+    <span class="s2">"ffmpeg"</span><span class="p">,</span>
+    <span class="s2">"-y"</span><span class="p">,</span>
+    <span class="s2">"-i"</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span>
+    <span class="s2">"-vcodec"</span><span class="p">,</span> <span class="s2">"libx264"</span><span class="p">,</span>
+    <span class="s2">"-acodec"</span><span class="p">,</span> <span class="s2">"aac"</span><span class="p">,</span>
+    <span class="s2">"-pix_fmt"</span><span class="p">,</span> <span class="s2">"yuv420p"</span><span class="p">,</span>
     <span class="n">web_path</span>
 <span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">DEVNULL</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">DEVNULL</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Re-encoded to:&quot;</span><span class="p">,</span> <span class="n">web_path</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Re-encoded to:"</span><span class="p">,</span> <span class="n">web_path</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1014,13 +1010,13 @@ This involves computing the <strong>centroid of the performer’s body</strong>,
             
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7c1ab5da5cfe3ef6680e6baea5a70b28e43d2bc60d0025a4a99c61f60cadcced.png" src="../_images/7c1ab5da5cfe3ef6680e6baea5a70b28e43d2bc60d0025a4a99c61f60cadcced.png" />
+<img alt="../_images/c89981abbb9354914e84f9f96a03d9c501f640fb094568313de6302e45072f67.png" src="../_images/c89981abbb9354914e84f9f96a03d9c501f640fb094568313de6302e45072f67.png" />
 </div>
 </div>
 </section>

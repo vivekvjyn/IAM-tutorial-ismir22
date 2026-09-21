@@ -33,7 +33,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/myfile.css" />
@@ -212,7 +212,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../rhythmic_analysis/meter_analysis.html">Meter analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rhythmic_analysis/percussion-transcription.html">Percussion transcription</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../rhythmic_analysis/tcn_carnatic.html">TCN Carnatic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rhythmic_analysis/beat_tracking.html">Beat tracking</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Structure Analysis</span></p>
 <ul class="nav bd-sidenav">
@@ -506,14 +506,14 @@ document.write(`
 <span class="kn">import</span><span class="w"> </span><span class="nn">tarfile</span>
 
 <span class="c1"># Open file</span>
-<span class="n">file</span> <span class="o">=</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;2stems.tar.gz&quot;</span><span class="p">)</span>
+<span class="n">file</span> <span class="o">=</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">"2stems.tar.gz"</span><span class="p">)</span>
 
 <span class="c1"># Creating directory where spleeter looks for models by default</span>
-<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s2">&quot;pretrained_models/&quot;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s2">"pretrained_models/"</span><span class="p">)</span>
 
 <span class="c1"># Extracting files in tar</span>
 <span class="n">file</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;pretrained_models&quot;</span><span class="p">,</span> <span class="s2">&quot;2stems&quot;</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"pretrained_models"</span><span class="p">,</span> <span class="s2">"2stems"</span><span class="p">)</span>
 <span class="p">)</span>
 
 <span class="c1"># Closing file</span>
@@ -527,17 +527,11 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Disabling tensorflow warnings and debugging info</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span> 
-<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;TF_CPP_MIN_LOG_LEVEL&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;3&quot;</span> 
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"TF_CPP_MIN_LOG_LEVEL"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"3"</span> 
 
 <span class="c1"># Importing tensorflow and disabling GPU usage</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>
-<span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">set_visible_devices</span><span class="p">([],</span> <span class="s2">&quot;GPU&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.3) or chardet (6.0.0.post1)/charset_normalizer (3.4.4) doesn&#39;t match a supported version!
-  warnings.warn(
+<span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">set_visible_devices</span><span class="p">([],</span> <span class="s2">"GPU"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -553,7 +547,7 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spleeter.separator</span><span class="w"> </span><span class="kn">import</span> <span class="n">Separator</span>
 
 <span class="c1"># Load default 2-stem spleeter separation</span>
-<span class="n">separator</span> <span class="o">=</span> <span class="n">Separator</span><span class="p">(</span><span class="s2">&quot;spleeter:2stems&quot;</span><span class="p">)</span>
+<span class="n">separator</span> <span class="o">=</span> <span class="n">Separator</span><span class="p">(</span><span class="s2">"spleeter:2stems"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -564,7 +558,7 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">soundfile</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sf</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ipd</span>
-<span class="n">separation_examples</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;../audio/separation/*.mp3&quot;</span><span class="p">)</span>
+<span class="n">separation_examples</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"../audio/separation/*.mp3"</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">ex</span> <span class="ow">in</span> <span class="n">separation_examples</span><span class="p">:</span>
     <span class="n">input_mixture</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">ex</span><span class="p">)</span>
@@ -573,22 +567,22 @@ document.write(`
     <span class="c1"># Running spleeter</span>
     <span class="n">separation</span> <span class="o">=</span> <span class="n">separator</span><span class="o">.</span><span class="n">separate</span><span class="p">(</span><span class="n">ex</span><span class="p">)</span>
     <span class="c1"># Saving the results</span>
-    <span class="n">song_name</span> <span class="o">=</span> <span class="n">ex</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.mp3&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;audio&quot;</span><span class="p">,</span> <span class="s2">&quot;separation&quot;</span><span class="p">,</span> <span class="s2">&quot;spleeter&quot;</span><span class="p">,</span> <span class="n">song_name</span><span class="p">))</span>
+    <span class="n">song_name</span> <span class="o">=</span> <span class="n">ex</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">".mp3"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">".."</span><span class="p">,</span> <span class="s2">"audio"</span><span class="p">,</span> <span class="s2">"separation"</span><span class="p">,</span> <span class="s2">"spleeter"</span><span class="p">,</span> <span class="n">song_name</span><span class="p">))</span>
     <span class="n">sf</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;audio&quot;</span><span class="p">,</span> <span class="s2">&quot;separation&quot;</span><span class="p">,</span> <span class="s2">&quot;spleeter&quot;</span><span class="p">,</span> <span class="n">song_name</span><span class="p">,</span> <span class="s2">&quot;vocals.wav&quot;</span><span class="p">),</span>
-        <span class="n">separation</span><span class="p">[</span><span class="s2">&quot;vocals&quot;</span><span class="p">],</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">".."</span><span class="p">,</span> <span class="s2">"audio"</span><span class="p">,</span> <span class="s2">"separation"</span><span class="p">,</span> <span class="s2">"spleeter"</span><span class="p">,</span> <span class="n">song_name</span><span class="p">,</span> <span class="s2">"vocals.wav"</span><span class="p">),</span>
+        <span class="n">separation</span><span class="p">[</span><span class="s2">"vocals"</span><span class="p">],</span>
         <span class="n">sr</span>
     <span class="p">)</span>
 
-<span class="n">separated_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;../audio/separation/spleeter/*/vocals.wav&quot;</span><span class="p">)</span>
+<span class="n">separated_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"../audio/separation/spleeter/*/vocals.wav"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Separation:&quot;</span><span class="p">,</span> <span class="n">separated_files</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Separation:"</span><span class="p">,</span> <span class="n">separated_files</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">audio</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">separated_files</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">audio</span> <span class="o">=</span> <span class="n">audio</span><span class="o">.</span><span class="n">T</span>
 <span class="n">ipd</span><span class="o">.</span><span class="n">Audio</span><span class="p">(</span><span class="n">audio</span><span class="p">[:,</span> <span class="p">:</span><span class="n">sr</span><span class="o">*</span><span class="mi">30</span><span class="p">],</span> <span class="n">rate</span><span class="o">=</span><span class="n">sr</span><span class="p">)</span>
@@ -599,7 +593,7 @@ document.write(`
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Separation:&quot;</span><span class="p">,</span> <span class="n">separated_files</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s2">"Separation:"</span><span class="p">,</span> <span class="n">separated_files</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">audio</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">separated_files</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">audio</span> <span class="o">=</span> <span class="n">audio</span><span class="o">.</span><span class="n">T</span>
 
@@ -610,7 +604,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Separation:&quot;</span><span class="p">,</span> <span class="n">separated_files</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Separation:"</span><span class="p">,</span> <span class="n">separated_files</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">audio</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">separated_files</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">audio</span> <span class="o">=</span> <span class="n">audio</span><span class="o">.</span><span class="n">T</span>
 <span class="n">ipd</span><span class="o">.</span><span class="n">Audio</span><span class="p">(</span><span class="n">audio</span><span class="p">[:,</span> <span class="p">:</span><span class="n">sr</span><span class="o">*</span><span class="mi">30</span><span class="p">],</span> <span class="n">rate</span><span class="o">=</span><span class="n">sr</span><span class="p">)</span>
@@ -621,7 +615,7 @@ document.write(`
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Separation:&quot;</span><span class="p">,</span> <span class="n">separated_files</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s2">"Separation:"</span><span class="p">,</span> <span class="n">separated_files</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">audio</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">separated_files</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">audio</span> <span class="o">=</span> <span class="n">audio</span><span class="o">.</span><span class="n">T</span>
 
@@ -632,7 +626,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Separation:&quot;</span><span class="p">,</span> <span class="n">separated_files</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Separation:"</span><span class="p">,</span> <span class="n">separated_files</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 <span class="n">audio</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">separated_files</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 <span class="n">audio</span> <span class="o">=</span> <span class="n">audio</span><span class="o">.</span><span class="n">T</span>
 <span class="n">ipd</span><span class="o">.</span><span class="n">Audio</span><span class="p">(</span><span class="n">audio</span><span class="p">[:,</span> <span class="p">:</span><span class="n">sr</span><span class="o">*</span><span class="mi">30</span><span class="p">],</span> <span class="n">rate</span><span class="o">=</span><span class="n">sr</span><span class="p">)</span>
@@ -643,7 +637,7 @@ document.write(`
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Separation:&quot;</span><span class="p">,</span> <span class="n">separated_files</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s2">"Separation:"</span><span class="p">,</span> <span class="n">separated_files</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">audio</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">separated_files</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">audio</span> <span class="o">=</span> <span class="n">audio</span><span class="o">.</span><span class="n">T</span>
 
@@ -654,7 +648,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Separation:&quot;</span><span class="p">,</span> <span class="n">separated_files</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Separation:"</span><span class="p">,</span> <span class="n">separated_files</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
 <span class="n">audio</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">separated_files</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
 <span class="n">audio</span> <span class="o">=</span> <span class="n">audio</span><span class="o">.</span><span class="n">T</span>
 <span class="n">ipd</span><span class="o">.</span><span class="n">Audio</span><span class="p">(</span><span class="n">audio</span><span class="p">[:,</span> <span class="p">:</span><span class="n">sr</span><span class="o">*</span><span class="mi">30</span><span class="p">],</span> <span class="n">rate</span><span class="o">=</span><span class="n">sr</span><span class="p">)</span>
@@ -665,7 +659,7 @@ document.write(`
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Separation:&quot;</span><span class="p">,</span> <span class="n">separated_files</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s2">"Separation:"</span><span class="p">,</span> <span class="n">separated_files</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">audio</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">separated_files</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">audio</span> <span class="o">=</span> <span class="n">audio</span><span class="o">.</span><span class="n">T</span>
 
@@ -676,7 +670,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Separation:&quot;</span><span class="p">,</span> <span class="n">separated_files</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Separation:"</span><span class="p">,</span> <span class="n">separated_files</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
 <span class="n">audio</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">separated_files</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
 <span class="n">audio</span> <span class="o">=</span> <span class="n">audio</span><span class="o">.</span><span class="n">T</span>
 <span class="n">ipd</span><span class="o">.</span><span class="n">Audio</span><span class="p">(</span><span class="n">audio</span><span class="p">[:,</span> <span class="p">:</span><span class="n">sr</span><span class="o">*</span><span class="mi">30</span><span class="p">],</span> <span class="n">rate</span><span class="o">=</span><span class="n">sr</span><span class="p">)</span>
@@ -687,7 +681,7 @@ document.write(`
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Separation:&quot;</span><span class="p">,</span> <span class="n">separated_files</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s2">"Separation:"</span><span class="p">,</span> <span class="n">separated_files</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">audio</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">separated_files</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">audio</span> <span class="o">=</span> <span class="n">audio</span><span class="o">.</span><span class="n">T</span>
 
@@ -698,7 +692,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Separation:&quot;</span><span class="p">,</span> <span class="n">separated_files</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Separation:"</span><span class="p">,</span> <span class="n">separated_files</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
 <span class="n">audio</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">separated_files</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
 <span class="n">audio</span> <span class="o">=</span> <span class="n">audio</span><span class="o">.</span><span class="n">T</span>
 <span class="n">ipd</span><span class="o">.</span><span class="n">Audio</span><span class="p">(</span><span class="n">audio</span><span class="p">[:,</span> <span class="p">:</span><span class="n">sr</span><span class="o">*</span><span class="mi">30</span><span class="p">],</span> <span class="n">rate</span><span class="o">=</span><span class="n">sr</span><span class="p">)</span>
@@ -709,7 +703,7 @@ document.write(`
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Separation:&quot;</span><span class="p">,</span> <span class="n">separated_files</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s2">"Separation:"</span><span class="p">,</span> <span class="n">separated_files</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">audio</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">separated_files</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">audio</span> <span class="o">=</span> <span class="n">audio</span><span class="o">.</span><span class="n">T</span>
 
@@ -720,7 +714,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Separation:&quot;</span><span class="p">,</span> <span class="n">separated_files</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Separation:"</span><span class="p">,</span> <span class="n">separated_files</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span>
 <span class="n">audio</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">separated_files</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span>
 <span class="n">audio</span> <span class="o">=</span> <span class="n">audio</span><span class="o">.</span><span class="n">T</span>
 <span class="n">ipd</span><span class="o">.</span><span class="n">Audio</span><span class="p">(</span><span class="n">audio</span><span class="p">[:,</span> <span class="p">:</span><span class="n">sr</span><span class="o">*</span><span class="mi">30</span><span class="p">],</span> <span class="n">rate</span><span class="o">=</span><span class="n">sr</span><span class="p">)</span>
@@ -731,7 +725,7 @@ document.write(`
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Separation:&quot;</span><span class="p">,</span> <span class="n">separated_files</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s2">"Separation:"</span><span class="p">,</span> <span class="n">separated_files</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">audio</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">separated_files</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">audio</span> <span class="o">=</span> <span class="n">audio</span><span class="o">.</span><span class="n">T</span>
 

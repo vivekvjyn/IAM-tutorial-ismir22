@@ -33,7 +33,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
@@ -212,7 +212,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../rhythmic_analysis/meter_analysis.html">Meter analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rhythmic_analysis/percussion-transcription.html">Percussion transcription</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rhythmic_analysis/tcn_carnatic.html">TCN Carnatic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rhythmic_analysis/beat_tracking.html">Beat tracking</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Structure Analysis</span></p>
 <ul class="nav bd-sidenav">
@@ -520,21 +520,21 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Installing (if not) and importing compiam to the project</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">importlib.util</span>
-<span class="k">if</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">find_spec</span><span class="p">(</span><span class="s1">&#39;compiam&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">find_spec</span><span class="p">(</span><span class="s1">'compiam'</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
     <span class="c1">## Bear in mind this will only run in a jupyter notebook / Collab session</span>
     <span class="o">%</span><span class="k">pip</span> install compiam
 <span class="kn">import</span><span class="w"> </span><span class="nn">compiam</span>
 
 <span class="c1"># Supress warnings to keep the tutorial clean</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">'ignore'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mridangam_stroke</span> <span class="o">=</span> <span class="n">compiam</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;mridangam_stroke&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mridangam_stroke</span> <span class="o">=</span> <span class="n">compiam</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">"mridangam_stroke"</span><span class="p">)</span>
 <span class="n">mridangam_stroke</span><span class="o">.</span><span class="n">download</span><span class="p">()</span>
 <span class="n">mridangam_stroke</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span>
 </pre></div>
@@ -548,7 +548,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Let&#39;s get a random track from the dataset!</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Let's get a random track from the dataset!</span>
 <span class="n">track</span> <span class="o">=</span> <span class="n">mridangam_stroke</span><span class="o">.</span><span class="n">choice_track</span><span class="p">()</span>
 <span class="n">track</span>
 </pre></div>
@@ -556,11 +556,11 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Track(
-  audio_path=&quot;...me/runner/mir_datasets/mridangam_stroke/mridangam_stroke_1.5/D#/229472__akshaylaya__tham-dsh-001.wav&quot;,
-  stroke_name=&quot;tham&quot;,
-  tonic=&quot;D#&quot;,
-  track_id=&quot;229472&quot;,
-  audio: The track&#39;s audio
+  audio_path="...me/runner/mir_datasets/mridangam_stroke/mridangam_stroke_1.5/D#/229472__akshaylaya__tham-dsh-001.wav",
+  stroke_name="tham",
+  tonic="D#",
+  track_id="229472",
+  audio: The track's audio
 
         Returns,
 )
@@ -615,8 +615,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;bheem&#39;, &#39;cha&#39;, &#39;dheem&#39;, &#39;dhin&#39;, &#39;num&#39;, &#39;ta&#39;, &#39;tha&#39;, &#39;tham&#39;, &#39;thi&#39;,
-       &#39;thom&#39;], dtype=&#39;&lt;U5&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array(['bheem', 'cha', 'dheem', 'dhin', 'num', 'ta', 'tha', 'tham', 'thi',
+       'thom'], dtype='&lt;U5')
 </pre></div>
 </div>
 </div>
@@ -628,12 +628,12 @@ document.write(`
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">mridangam_stroke</span><span class="o">.</span><span class="n">track_ids</span><span class="p">:</span>
     <span class="n">stroke_dict</span><span class="p">[</span><span class="n">mridangam_tracks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">stroke_name</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mridangam_tracks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">audio_path</span><span class="p">)</span>
 
-<span class="n">stroke_dict</span><span class="p">[</span><span class="s1">&#39;bheem&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">stroke_dict</span><span class="p">[</span><span class="s1">'bheem'</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/home/runner/mir_datasets/mridangam_stroke/mridangam_stroke_1.5/B/224030__akshaylaya__bheem-b-001.wav&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>'/home/runner/mir_datasets/mridangam_stroke/mridangam_stroke_1.5/B/224030__akshaylaya__bheem-b-001.wav'
 </pre></div>
 </div>
 </div>
@@ -641,7 +641,7 @@ document.write(`
 <p><strong>Let’s play this example!</strong> Audio (and also annotations!) can be easily loaded from each track.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s first get a random track</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let's first get a random track</span>
 <span class="n">random_track</span> <span class="o">=</span> <span class="n">mridangam_stroke</span><span class="o">.</span><span class="n">choice_track</span><span class="p">()</span>
 
 <span class="n">track_id</span> <span class="o">=</span> <span class="n">random_track</span><span class="o">.</span><span class="n">track_id</span>  <span class="c1"># Getting id of track</span>
@@ -649,7 +649,7 @@ document.write(`
 <span class="n">tonic</span> <span class="o">=</span> <span class="n">random_track</span><span class="o">.</span><span class="n">tonic</span>  <span class="c1"># Getting tonic of stroke</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ipd</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Play recording of id: </span><span class="si">{}</span><span class="s2">, including stroke &#39;</span><span class="si">{}</span><span class="s2">&#39; and tonic </span><span class="si">{}</span><span class="s2">&quot;</span>\
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Play recording of id: </span><span class="si">{}</span><span class="s2">, including stroke '</span><span class="si">{}</span><span class="s2">' and tonic </span><span class="si">{}</span><span class="s2">"</span>\
     <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">track_id</span><span class="p">,</span> <span class="n">stroke_name</span><span class="p">,</span> <span class="n">tonic</span><span class="p">))</span>
     
 <span class="n">ipd</span><span class="o">.</span><span class="n">Audio</span><span class="p">(</span>
@@ -660,7 +660,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Play recording of id: 224976, including stroke &#39;thi&#39; and tonic B
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Play recording of id: 224976, including stroke 'thi' and tonic B
 </pre></div>
 </div>
 <div class="output text_html">

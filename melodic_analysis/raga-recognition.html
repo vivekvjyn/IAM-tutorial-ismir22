@@ -33,7 +33,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
@@ -212,7 +212,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../rhythmic_analysis/meter_analysis.html">Meter analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rhythmic_analysis/percussion-transcription.html">Percussion transcription</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rhythmic_analysis/tcn_carnatic.html">TCN Carnatic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rhythmic_analysis/beat_tracking.html">Beat tracking</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Structure Analysis</span></p>
 <ul class="nav bd-sidenav">
@@ -498,7 +498,7 @@ Time (LSTM) networks, given its ability to capture sequence information <span id
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Installing (if not) and importing compiam to the project</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">importlib.util</span>
-<span class="k">if</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">find_spec</span><span class="p">(</span><span class="s1">&#39;compiam&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">find_spec</span><span class="p">(</span><span class="s1">'compiam'</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
     <span class="c1">## Bear in mind this will only run in a jupyter notebook / Collab session</span>
     <span class="o">%</span><span class="k">pip</span> install compiam
 <span class="kn">import</span><span class="w"> </span><span class="nn">compiam</span>
@@ -507,7 +507,7 @@ Time (LSTM) networks, given its ability to capture sequence information <span id
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pprint</span><span class="w"> </span><span class="kn">import</span> <span class="n">pprint</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">'ignore'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -520,7 +520,7 @@ Time (LSTM) networks, given its ability to capture sequence information <span id
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;DEEPSRGM*&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>['DEEPSRGM*']
 </pre></div>
 </div>
 </div>
@@ -539,7 +539,7 @@ Time (LSTM) networks, given its ability to capture sequence information <span id
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This tool has * at the end: we can load the pre-trained instance</span>
-<span class="n">deepsrgm</span> <span class="o">=</span> <span class="n">compiam</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;melody:deepsrgm&quot;</span><span class="p">)</span>
+<span class="n">deepsrgm</span> <span class="o">=</span> <span class="n">compiam</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">"melody:deepsrgm"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -556,16 +556,16 @@ Time (LSTM) networks, given its ability to capture sequence information <span id
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{0: &#39;Bhairav&#39;,
- 1: &#39;Madhukauns&#39;,
- 2: &#39;Mōhanaṁ&#39;,
- 3: &#39;Hamsadhvāni&#39;,
- 4: &#39;Varāḷi&#39;,
- 5: &#39;Dēś&#39;,
- 6: &#39;Kamās&#39;,
- 7: &#39;Yaman kalyāṇ&#39;,
- 8: &#39;Bilahari&#39;,
- 9: &#39;Ahira bhairav&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{0: 'Bhairav',
+ 1: 'Madhukauns',
+ 2: 'Mōhanaṁ',
+ 3: 'Hamsadhvāni',
+ 4: 'Varāḷi',
+ 5: 'Dēś',
+ 6: 'Kamās',
+ 7: 'Yaman kalyāṇ',
+ 8: 'Bilahari',
+ 9: 'Ahira bhairav'}
 </pre></div>
 </div>
 </div>
@@ -575,7 +575,7 @@ Time (LSTM) networks, given its ability to capture sequence information <span id
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize saraga Carnatic on our example audio folder</span>
 <span class="n">saraga_carnatic</span> <span class="o">=</span> <span class="n">compiam</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span>
-    <span class="s2">&quot;saraga_carnatic&quot;</span><span class="p">,</span> <span class="n">data_home</span><span class="o">=</span><span class="s2">&quot;./../audio/mir_datasets/&quot;</span>
+    <span class="s2">"saraga_carnatic"</span><span class="p">,</span> <span class="n">data_home</span><span class="o">=</span><span class="s2">"./../audio/mir_datasets/"</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -592,9 +592,9 @@ Time (LSTM) networks, given its ability to capture sequence information <span id
 <span class="n">saraga_tracks</span> <span class="o">=</span> <span class="n">saraga_carnatic</span><span class="o">.</span><span class="n">load_tracks</span><span class="p">()</span>
 
 <span class="c1"># Now we can get a specific track</span>
-<span class="n">track_data</span> <span class="o">=</span> <span class="n">saraga_tracks</span><span class="p">[</span><span class="s2">&quot;109_Sri_Raghuvara_Sugunaalaya&quot;</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This recording includes raaga:&quot;</span><span class="p">,</span> <span class="n">track_data</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;raaga&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This recordings has unique Dunya ID:&quot;</span><span class="p">,</span> <span class="n">track_data</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;raaga&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;uuid&quot;</span><span class="p">])</span>
+<span class="n">track_data</span> <span class="o">=</span> <span class="n">saraga_tracks</span><span class="p">[</span><span class="s2">"109_Sri_Raghuvara_Sugunaalaya"</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"This recording includes raaga:"</span><span class="p">,</span> <span class="n">track_data</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s2">"raaga"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">"name"</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"This recordings has unique Dunya ID:"</span><span class="p">,</span> <span class="n">track_data</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s2">"raaga"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">"uuid"</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>

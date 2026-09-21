@@ -33,7 +33,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
@@ -214,7 +214,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../rhythmic_analysis/meter_analysis.html">Meter analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rhythmic_analysis/percussion-transcription.html">Percussion transcription</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rhythmic_analysis/tcn_carnatic.html">TCN Carnatic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rhythmic_analysis/beat_tracking.html">Beat tracking</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Structure Analysis</span></p>
 <ul class="nav bd-sidenav">
@@ -543,7 +543,7 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">essentia</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">essentia.standard</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">estd</span>
 
-<span class="c1"># Let&#39;s also import util modules for data processing and visualisation</span>
+<span class="c1"># Let's also import util modules for data processing and visualisation</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
@@ -568,7 +568,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">audio</span> <span class="o">=</span> <span class="n">estd</span><span class="o">.</span><span class="n">MonoLoader</span><span class="p">(</span>
-    <span class="n">filename</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;audio&quot;</span><span class="p">,</span> <span class="s2">&quot;testing_samples&quot;</span><span class="p">,</span> <span class="s2">&quot;test_1.wav&quot;</span><span class="p">)</span>
+    <span class="n">filename</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">".."</span><span class="p">,</span> <span class="s2">"audio"</span><span class="p">,</span> <span class="s2">"testing_samples"</span><span class="p">,</span> <span class="s2">"test_1.wav"</span><span class="p">)</span>
 <span class="p">)()</span>  <span class="c1"># Loading audio at sampling rate of 44100 (default)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">audio</span><span class="p">))</span>
@@ -587,7 +587,7 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">duration</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">audio</span><span class="p">)</span> <span class="o">/</span> <span class="mi">44100</span><span class="p">)</span>
 
 <span class="c1"># Printing duration in h/m/s format</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="n">duration</span><span class="p">))</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="n">duration</span><span class="p">))</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"."</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -605,13 +605,13 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">audio_22050</span> <span class="o">=</span> <span class="n">estd</span><span class="o">.</span><span class="n">MonoLoader</span><span class="p">(</span>
-    <span class="n">filename</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;audio&quot;</span><span class="p">,</span> <span class="s2">&quot;testing_samples&quot;</span><span class="p">,</span> <span class="s2">&quot;test_1.wav&quot;</span><span class="p">),</span>
+    <span class="n">filename</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">".."</span><span class="p">,</span> <span class="s2">"audio"</span><span class="p">,</span> <span class="s2">"testing_samples"</span><span class="p">,</span> <span class="s2">"test_1.wav"</span><span class="p">),</span>
     <span class="n">sampleRate</span><span class="o">=</span><span class="mi">22050</span>
 <span class="p">)()</span>  <span class="c1"># Loading audio at sampling rate of 22050</span>
 <span class="n">duration_22050</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">audio_22050</span><span class="p">)</span> <span class="o">/</span> <span class="mi">22050</span><span class="p">)</span>  <span class="c1"># We use sampling rate of 22050 now</span>
 
 <span class="c1"># Printing duration of audio sampled at 22050</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="n">duration_22050</span><span class="p">))</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="n">duration_22050</span><span class="p">))</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"."</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
 
 <span class="c1"># Length ratio for fs=44100 and 22050</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">audio</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">audio_22050</span><span class="p">),</span> <span class="mi">3</span><span class="p">))</span>
@@ -632,7 +632,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">audio</span> <span class="o">=</span> <span class="n">estd</span><span class="o">.</span><span class="n">MonoLoader</span><span class="p">(</span>
-    <span class="n">filename</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;audio&quot;</span><span class="p">,</span> <span class="s2">&quot;testing_samples&quot;</span><span class="p">,</span> <span class="s2">&quot;test_1.wav&quot;</span><span class="p">)</span>
+    <span class="n">filename</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">".."</span><span class="p">,</span> <span class="s2">"audio"</span><span class="p">,</span> <span class="s2">"testing_samples"</span><span class="p">,</span> <span class="s2">"test_1.wav"</span><span class="p">)</span>
 <span class="p">)()</span>
 <span class="n">ipd</span><span class="o">.</span><span class="n">Audio</span><span class="p">(</span><span class="n">audio</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mi">44100</span><span class="p">)</span>
 </pre></div>
@@ -650,20 +650,20 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">audio</span> <span class="o">=</span> <span class="n">estd</span><span class="o">.</span><span class="n">MonoLoader</span><span class="p">(</span>
-    <span class="n">filename</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;audio&quot;</span><span class="p">,</span> <span class="s2">&quot;testing_samples&quot;</span><span class="p">,</span> <span class="s2">&quot;test_1.wav&quot;</span><span class="p">)</span>
+    <span class="n">filename</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">".."</span><span class="p">,</span> <span class="s2">"audio"</span><span class="p">,</span> <span class="s2">"testing_samples"</span><span class="p">,</span> <span class="s2">"test_1.wav"</span><span class="p">)</span>
 <span class="p">)()</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">audio</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Waveform of example audio sample&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Amplitude&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Waveform of example audio sample"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Time"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Amplitude"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2cbe1f7023c17d0ea8c17baed56cca4fa8baf6580ce52af8b7fe460bdb3bfc04.png" src="../_images/2cbe1f7023c17d0ea8c17baed56cca4fa8baf6580ce52af8b7fe460bdb3bfc04.png" />
+<img alt="../_images/80dd3d1e5e434975f6083f38e952ccedd6652b09ef36c2f84487f19775e89568.png" src="../_images/80dd3d1e5e434975f6083f38e952ccedd6652b09ef36c2f84487f19775e89568.png" />
 </div>
 </div>
 </section>
@@ -744,7 +744,7 @@ document.write(`
 
 <span class="c1"># We create the spectrum of the signal</span>
 <span class="n">spectrum</span> <span class="o">=</span> <span class="n">estd</span><span class="o">.</span><span class="n">Spectrum</span><span class="p">()</span> 
-<span class="n">window</span> <span class="o">=</span> <span class="n">estd</span><span class="o">.</span><span class="n">Windowing</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;hann&quot;</span><span class="p">)</span>
+<span class="n">window</span> <span class="o">=</span> <span class="n">estd</span><span class="o">.</span><span class="n">Windowing</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">"hann"</span><span class="p">)</span>
 <span class="n">signal_spectrum</span> <span class="o">=</span> <span class="n">spectrum</span><span class="p">(</span><span class="n">window</span><span class="p">(</span><span class="n">signal</span><span class="p">))</span>
 
 <span class="c1"># We create a x vector to represent the frequencies</span>
@@ -752,16 +752,16 @@ document.write(`
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xf</span><span class="p">,</span> <span class="n">signal_spectrum</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Energy&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Frequency"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Energy"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>  <span class="c1"># Limiting view to area of interest</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Spectrum of a simple signal&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Spectrum of a simple signal"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4f9cd714cb52764b59259349ae24023df9a09c13545237161bcaeb0af2643252.png" src="../_images/4f9cd714cb52764b59259349ae24023df9a09c13545237161bcaeb0af2643252.png" />
+<img alt="../_images/5b700ac3691289b986ca24583b3faf1225a0da3dffb1029cb1d6a285c08ea743.png" src="../_images/5b700ac3691289b986ca24583b3faf1225a0da3dffb1029cb1d6a285c08ea743.png" />
 </div>
 </div>
 <div class="admonition note">
@@ -791,15 +791,15 @@ document.write(`
 
 <span class="c1"># And plotting!</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">img</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">specshow</span><span class="p">(</span><span class="n">S_db</span><span class="p">,</span> <span class="n">x_axis</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">y_axis</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Time-frequency representation&#39;</span><span class="p">)</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">specshow</span><span class="p">(</span><span class="n">S_db</span><span class="p">,</span> <span class="n">x_axis</span><span class="o">=</span><span class="s1">'time'</span><span class="p">,</span> <span class="n">y_axis</span><span class="o">=</span><span class="s1">'linear'</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'Time-frequency representation'</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2000</span><span class="p">])</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;%+2.f dB&quot;</span><span class="p">);</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">"%+2.f dB"</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/bad6e9b68ac79d12ad0974e003c7930ecbb801896f297a1194466e8268127bc2.png" src="../_images/bad6e9b68ac79d12ad0974e003c7930ecbb801896f297a1194466e8268127bc2.png" />
+<img alt="../_images/154284a7c7ee4504fdfd71f25eea1be9b1f5eb2d5eac83f01337cf0b080b615a.png" src="../_images/154284a7c7ee4504fdfd71f25eea1be9b1f5eb2d5eac83f01337cf0b080b615a.png" />
 </div>
 </div>
 <p>Let’s now plot a more applied signal. We will use a testing audio of 2 seconds, and observe how it looks like.</p>
@@ -807,7 +807,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># librosa may also be used to load audio</span>
 <span class="n">y</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;audio&quot;</span><span class="p">,</span> <span class="s2">&quot;testing_samples&quot;</span><span class="p">,</span> <span class="s2">&quot;test_1.wav&quot;</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">".."</span><span class="p">,</span> <span class="s2">"audio"</span><span class="p">,</span> <span class="s2">"testing_samples"</span><span class="p">,</span> <span class="s2">"test_1.wav"</span><span class="p">)</span>
 <span class="p">)</span>
 
 <span class="c1"># Computing time-frequency representation for signal above</span>
@@ -816,15 +816,15 @@ document.write(`
 
 <span class="c1"># And plotting!</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">img</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">specshow</span><span class="p">(</span><span class="n">S_db</span><span class="p">,</span> <span class="n">x_axis</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">y_axis</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Time-frequency representation&#39;</span><span class="p">)</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">specshow</span><span class="p">(</span><span class="n">S_db</span><span class="p">,</span> <span class="n">x_axis</span><span class="o">=</span><span class="s1">'time'</span><span class="p">,</span> <span class="n">y_axis</span><span class="o">=</span><span class="s1">'linear'</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'Time-frequency representation'</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2000</span><span class="p">])</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;%+2.f dB&quot;</span><span class="p">);</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">"%+2.f dB"</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/db43fe5d885f863fb7b3c4d8e2ebc63f64ba67bba28b05a9eaa276975f951e18.png" src="../_images/db43fe5d885f863fb7b3c4d8e2ebc63f64ba67bba28b05a9eaa276975f951e18.png" />
+<img alt="../_images/18864b27c70ae76dc13a7e7c5e945cac613f38bba325bf88552cbb6b3d20dc0b.png" src="../_images/18864b27c70ae76dc13a7e7c5e945cac613f38bba325bf88552cbb6b3d20dc0b.png" />
 </div>
 </div>
 <p>We see that, since multiple pitches are being sung (even in only two seconds), this representation is more appropiate to use. We will refer to the time-frequency representation (aka spectrogram) many times durinng the tutorial, so make sure to understand it clearly.</p>

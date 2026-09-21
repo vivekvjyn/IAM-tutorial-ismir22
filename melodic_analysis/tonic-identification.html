@@ -33,7 +33,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
@@ -212,7 +212,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../rhythmic_analysis/meter_analysis.html">Meter analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rhythmic_analysis/percussion-transcription.html">Percussion transcription</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rhythmic_analysis/tcn_carnatic.html">TCN Carnatic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rhythmic_analysis/beat_tracking.html">Beat tracking</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Structure Analysis</span></p>
 <ul class="nav bd-sidenav">
@@ -502,7 +502,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Installing (if not) and importing compiam to the project</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">importlib.util</span>
-<span class="k">if</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">find_spec</span><span class="p">(</span><span class="s1">&#39;compiam&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">find_spec</span><span class="p">(</span><span class="s1">'compiam'</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
     <span class="c1">## Bear in mind this will only run in a jupyter notebook / Collab session</span>
     <span class="o">%</span><span class="k">pip</span> install git+git://github.com/MTG/compIAM.git
 <span class="kn">import</span><span class="w"> </span><span class="nn">compiam</span>
@@ -512,7 +512,7 @@ document.write(`
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pprint</span><span class="w"> </span><span class="kn">import</span> <span class="n">pprint</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">'ignore'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -529,7 +529,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;TonicIndianMultiPitch&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>['TonicIndianMultiPitch']
 </pre></div>
 </div>
 </div>
@@ -566,25 +566,25 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s first see the specific attributes of this tool</span>
-<span class="n">attributes</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">tonic_multipitch</span><span class="p">)</span> <span class="k">if</span> <span class="s2">&quot;__&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let's first see the specific attributes of this tool</span>
+<span class="n">attributes</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">tonic_multipitch</span><span class="p">)</span> <span class="k">if</span> <span class="s2">"__"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
 <span class="n">pprint</span><span class="p">(</span><span class="n">attributes</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;bin_resolution&#39;,
- &#39;extract&#39;,
- &#39;frame_size&#39;,
- &#39;harmonic_weight&#39;,
- &#39;hop_size&#39;,
- &#39;magnitude_compression&#39;,
- &#39;magnitude_threshold&#39;,
- &#39;max_tonic_frequency&#39;,
- &#39;min_tonic_frequency&#39;,
- &#39;num_harmonics&#39;,
- &#39;ref_frequency&#39;,
- &#39;sample_rate&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>['bin_resolution',
+ 'extract',
+ 'frame_size',
+ 'harmonic_weight',
+ 'hop_size',
+ 'magnitude_compression',
+ 'magnitude_threshold',
+ 'max_tonic_frequency',
+ 'min_tonic_frequency',
+ 'num_harmonics',
+ 'ref_frequency',
+ 'sample_rate']
 </pre></div>
 </div>
 </div>
@@ -623,15 +623,15 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Loading Tonic dataset using the mirdata loader</span>
 <span class="n">tonic_dataset</span> <span class="o">=</span> <span class="n">compiam</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span>
-    <span class="s2">&quot;compmusic_indian_tonic&quot;</span><span class="p">,</span>
-    <span class="n">data_home</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;audio&quot;</span><span class="p">,</span> <span class="s2">&quot;mir_datasets&quot;</span><span class="p">),</span>
+    <span class="s2">"compmusic_indian_tonic"</span><span class="p">,</span>
+    <span class="n">data_home</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">".."</span><span class="p">,</span> <span class="s2">"audio"</span><span class="p">,</span> <span class="s2">"mir_datasets"</span><span class="p">),</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>Unfortunately, the audio tracks for the Indian Art Music Tonic dataset are not openly available but only shared under explicit request. <strong>However that is not a problem!</strong> The workflow to get the entire dataset would look as simple as that:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tonic_dataset</span> <span class="o">=</span> <span class="n">compiam</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;compmusic_indian_tonic&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tonic_dataset</span> <span class="o">=</span> <span class="n">compiam</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">"compmusic_indian_tonic"</span><span class="p">)</span>
 <span class="n">tonic_dataset</span><span class="o">.</span><span class="n">download</span><span class="p">()</span>
 <span class="c1">### Request audio in https://zenodo.org/record/7342372</span>
 <span class="c1">### Download audio, unzip, and arrange folders as specified in docs</span>
@@ -680,16 +680,16 @@ CompMusic Tonic Dataset track class
 <p>Otherwise, if available, you may get the audios from the Dunya database. Accessing the data in Dunya requires you to have a unique and non-shareable access token. For that reason, we cannot provide here interactive walkthrough of how to parse audio examples from Dunya.</p>
 <p><strong>Not a problem though!</strong> We list here an example code block that may be run to parse audio from Dunya, and we provide, within the tutorial materials, a couple of audio excerpts to show you through the available tools. We have observed in the cell output above that the tracks in the Indian Art Music Tonic dataloader have a <code class="docutils literal notranslate"><span class="pre">mbid</span></code> attribute. Having a MusicBrainz ID at hand, we can run a code snippet, as the example below, to get the audio from the Dunya database.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">compiam</span>
-<span class="n">carnatic_corpora</span> <span class="o">=</span> <span class="n">compiam</span><span class="o">.</span><span class="n">load_corpora</span><span class="p">(</span><span class="s2">&quot;carnatic&quot;</span><span class="p">,</span> <span class="n">cc</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">token</span><span class="o">=</span><span class="s2">&quot;&lt;your-token&gt;&quot;</span><span class="p">)</span>
+<span class="n">carnatic_corpora</span> <span class="o">=</span> <span class="n">compiam</span><span class="o">.</span><span class="n">load_corpora</span><span class="p">(</span><span class="s2">"carnatic"</span><span class="p">,</span> <span class="n">cc</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">token</span><span class="o">=</span><span class="s2">"&lt;your-token&gt;"</span><span class="p">)</span>
 
 <span class="c1"># Print out the available recordings in the database</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">carnatic_corpora</span><span class="o">.</span><span class="n">get_collection</span><span class="p">())</span>
 
 <span class="c1"># Print out available data for specific track</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">carnatic_corpora</span><span class="o">.</span><span class="n">get_recording</span><span class="p">(</span><span class="s2">&quot;&lt;mbid&gt;&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">carnatic_corpora</span><span class="o">.</span><span class="n">get_recording</span><span class="p">(</span><span class="s2">"&lt;mbid&gt;"</span><span class="p">))</span>
 
 <span class="c1"># Download and save mp3 audio for particular track</span>
-<span class="n">carnatic_corpora</span><span class="o">.</span><span class="n">download_mp3</span><span class="p">(</span><span class="s2">&quot;&lt;mbid&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;path/to/save&quot;</span><span class="p">)</span>  
+<span class="n">carnatic_corpora</span><span class="o">.</span><span class="n">download_mp3</span><span class="p">(</span><span class="s2">"&lt;mbid&gt;"</span><span class="p">,</span> <span class="s2">"&lt;path/to/save"</span><span class="p">)</span>  
 </pre></div>
 </div>
 <div class="admonition important">
@@ -708,18 +708,18 @@ CompMusic Tonic Dataset track class
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tonic_tracks</span> <span class="o">=</span> <span class="n">tonic_dataset</span><span class="o">.</span><span class="n">load_tracks</span><span class="p">()</span>
-<span class="n">track_1</span> <span class="o">=</span> <span class="n">tonic_tracks</span><span class="p">[</span><span class="s2">&quot;0a6ebaa4-87cc-452d-a7af-a2006e96f16a_0-180&quot;</span><span class="p">]</span>
-<span class="n">track_2</span> <span class="o">=</span> <span class="n">tonic_tracks</span><span class="p">[</span><span class="s2">&quot;01-varnam-nayaki&quot;</span><span class="p">]</span>
+<span class="n">track_1</span> <span class="o">=</span> <span class="n">tonic_tracks</span><span class="p">[</span><span class="s2">"0a6ebaa4-87cc-452d-a7af-a2006e96f16a_0-180"</span><span class="p">]</span>
+<span class="n">track_2</span> <span class="o">=</span> <span class="n">tonic_tracks</span><span class="p">[</span><span class="s2">"01-varnam-nayaki"</span><span class="p">]</span>
 <span class="n">track_1</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Track(
-  audio_path=&quot;...udio/mir_datasets/indian_art_music_tonic_1.0/CM/audio/0a6ebaa4-87cc-452d-a7af-a2006e96f16a_0-180.mp3&quot;,
-  track_id=&quot;0a6ebaa4-87cc-452d-a7af-a2006e96f16a_0-180&quot;,
+  audio_path="...udio/mir_datasets/indian_art_music_tonic_1.0/CM/audio/0a6ebaa4-87cc-452d-a7af-a2006e96f16a_0-180.mp3",
+  track_id="0a6ebaa4-87cc-452d-a7af-a2006e96f16a_0-180",
   artist: ,
-  audio: The track&#39;s audio
+  audio: The track's audio
 
         Returns,
   gender: ,
@@ -735,9 +735,9 @@ CompMusic Tonic Dataset track class
 <p>Let’s just print out some of the relevant metadata and annotations for this track.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;mbid:&quot;</span><span class="p">,</span> <span class="n">track_1</span><span class="o">.</span><span class="n">mbid</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tonic:&quot;</span><span class="p">,</span> <span class="n">track_1</span><span class="o">.</span><span class="n">tonic</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Artist:&quot;</span><span class="p">,</span> <span class="n">track_1</span><span class="o">.</span><span class="n">artist</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"mbid:"</span><span class="p">,</span> <span class="n">track_1</span><span class="o">.</span><span class="n">mbid</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Tonic:"</span><span class="p">,</span> <span class="n">track_1</span><span class="o">.</span><span class="n">tonic</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Artist:"</span><span class="p">,</span> <span class="n">track_1</span><span class="o">.</span><span class="n">artist</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -780,9 +780,9 @@ Artist: T. N. Seshagopalan
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Track id:&quot;</span><span class="p">,</span> <span class="n">track_1</span><span class="o">.</span><span class="n">track_id</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Annotated tonic:&quot;</span><span class="p">,</span> <span class="n">track_1</span><span class="o">.</span><span class="n">tonic</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Extracted tonic:&quot;</span><span class="p">,</span> <span class="n">tonic_1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Track id:"</span><span class="p">,</span> <span class="n">track_1</span><span class="o">.</span><span class="n">track_id</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Annotated tonic:"</span><span class="p">,</span> <span class="n">track_1</span><span class="o">.</span><span class="n">tonic</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Extracted tonic:"</span><span class="p">,</span> <span class="n">tonic_1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -797,9 +797,9 @@ Extracted tonic: 131.7633056640625
 <p>For the second example, we synthesize a drone at the estimated tonic, aiming at evaluate by active listening the accuracy of this particular extraction.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Track id:&quot;</span><span class="p">,</span> <span class="n">track_2</span><span class="o">.</span><span class="n">track_id</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Annotated tonic:&quot;</span><span class="p">,</span> <span class="n">track_2</span><span class="o">.</span><span class="n">tonic</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Extracted tonic:&quot;</span><span class="p">,</span> <span class="n">tonic_2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Track id:"</span><span class="p">,</span> <span class="n">track_2</span><span class="o">.</span><span class="n">track_id</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Annotated tonic:"</span><span class="p">,</span> <span class="n">track_2</span><span class="o">.</span><span class="n">tonic</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Extracted tonic:"</span><span class="p">,</span> <span class="n">tonic_2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -813,10 +813,10 @@ Extracted tonic: 138.8064422607422
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s get the audio for the track</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let's get the audio for the track</span>
 <span class="n">audio</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">track_2</span><span class="o">.</span><span class="n">audio</span>
 
-<span class="c1"># Let&#39;s synthesize a tambura</span>
+<span class="c1"># Let's synthesize a tambura</span>
 <span class="n">synthesized_tambura</span> <span class="o">=</span> <span class="mf">0.75</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span>
     <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">tonic_2</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">audio</span><span class="p">)</span><span class="o">//</span><span class="n">sr</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">sr</span><span class="p">)</span>
 <span class="p">)</span>

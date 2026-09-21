@@ -33,7 +33,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
@@ -63,7 +63,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Stroke classification" href="../timbre_analysis/stroke-classification.html" />
-    <link rel="prev" title="TCN Carnatic" href="../rhythmic_analysis/tcn_carnatic.html" />
+    <link rel="prev" title="Beat tracking" href="../rhythmic_analysis/beat_tracking.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -212,7 +212,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../rhythmic_analysis/meter_analysis.html">Meter analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rhythmic_analysis/percussion-transcription.html">Percussion transcription</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rhythmic_analysis/tcn_carnatic.html">TCN Carnatic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rhythmic_analysis/beat_tracking.html">Beat tracking</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Structure Analysis</span></p>
 <ul class="current nav bd-sidenav">
@@ -497,7 +497,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Installing (if not) and importing compiam to the project</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">importlib.util</span>
-<span class="k">if</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">find_spec</span><span class="p">(</span><span class="s1">&#39;compiam&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">find_spec</span><span class="p">(</span><span class="s1">'compiam'</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
     <span class="c1">## Bear in mind this will only run in a jupyter notebook / Collab session</span>
     <span class="o">%</span><span class="k">pip</span> install git+git://github.com/MTG/compIAM.git
 <span class="kn">import</span><span class="w"> </span><span class="nn">compiam</span>
@@ -507,7 +507,7 @@ document.write(`
 <span class="kn">from</span><span class="w"> </span><span class="nn">pprint</span><span class="w"> </span><span class="kn">import</span> <span class="n">pprint</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">'ignore'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -520,7 +520,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;DhrupadBandishSegmentation*&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>['DhrupadBandishSegmentation*']
 </pre></div>
 </div>
 </div>
@@ -542,7 +542,7 @@ document.write(`
 </div>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dbs</span> <span class="o">=</span> <span class="n">compiam</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;structure:dhrupad-bandish-segmentation&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dbs</span> <span class="o">=</span> <span class="n">compiam</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">"structure:dhrupad-bandish-segmentation"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -557,13 +557,13 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on DhrupadBandishSegmentation in module compiam.structure.segmentation.dhrupad_bandish_segmentation object:
 
 class DhrupadBandishSegmentation(builtins.object)
- |  DhrupadBandishSegmentation(mode=&#39;net&#39;, fold=0, model_path=None, splits_path=None, annotations_path=None, features_path=None, original_audios_path=None, processed_audios_path=None, download_link=None, download_checksum=None, device=None)
+ |  DhrupadBandishSegmentation(mode='net', fold=0, model_path=None, splits_path=None, annotations_path=None, features_path=None, original_audios_path=None, processed_audios_path=None, download_link=None, download_checksum=None, device=None)
  |  
  |  Dhrupad Bandish Segmentation
  |  
  |  Methods defined here:
  |  
- |  __init__(self, mode=&#39;net&#39;, fold=0, model_path=None, splits_path=None, annotations_path=None, features_path=None, original_audios_path=None, processed_audios_path=None, download_link=None, download_checksum=None, device=None)
+ |  __init__(self, mode='net', fold=0, model_path=None, splits_path=None, annotations_path=None, features_path=None, original_audios_path=None, processed_audios_path=None, download_link=None, download_checksum=None, device=None)
  |      Dhrupad Bandish Segmentation init method.
  |      
  |      :param mode: net, voc, or pakh. That indicates the source for s.t.m. estimation. Use the net
@@ -639,7 +639,7 @@ class DhrupadBandishSegmentation(builtins.object)
 <p>These configuration variables are loaded by default as <code class="docutils literal notranslate"><span class="pre">net</span></code> and <code class="docutils literal notranslate"><span class="pre">0</span></code> respectively, however these may be easily changed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dbs</span><span class="o">.</span><span class="n">update_mode</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s2">&quot;voc&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dbs</span><span class="o">.</span><span class="n">update_mode</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s2">"voc"</span><span class="p">)</span>
 <span class="n">dbs</span><span class="o">.</span><span class="n">update_fold</span><span class="p">(</span><span class="n">fold</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -654,409 +654,153 @@ class DhrupadBandishSegmentation(builtins.object)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pip</span> install spleeter
-<span class="o">%</span><span class="k">pip</span> install &quot;keras&lt;3&quot;
+<span class="o">%</span><span class="k">pip</span> install "keras&lt;3"
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: spleeter in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (2.4.2)
-Requirement already satisfied: ffmpeg-python&lt;0.3.0,&gt;=0.2.0 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from spleeter) (0.2.0)
-Requirement already satisfied: httpx&lt;0.20.0,&gt;=0.19.0 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from httpx[http2]&lt;0.20.0,&gt;=0.19.0-&gt;spleeter) (0.19.0)
-Requirement already satisfied: norbert&lt;0.3.0,&gt;=0.2.1 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from spleeter) (0.2.1)
-Requirement already satisfied: numpy&lt;2.0.0 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from spleeter) (1.24.3)
-Requirement already satisfied: pandas&lt;2.0.0,&gt;=1.3.0 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from spleeter) (1.5.3)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: spleeter in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (2.4.2)
+Requirement already satisfied: ffmpeg-python&lt;0.3.0,&gt;=0.2.0 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from spleeter) (0.2.0)
+Requirement already satisfied: httpx&lt;0.20.0,&gt;=0.19.0 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from httpx[http2]&lt;0.20.0,&gt;=0.19.0-&gt;spleeter) (0.19.0)
+Requirement already satisfied: norbert&lt;0.3.0,&gt;=0.2.1 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from spleeter) (0.2.1)
+Requirement already satisfied: numpy&lt;2.0.0 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from spleeter) (1.24.3)
+Requirement already satisfied: pandas&lt;2.0.0,&gt;=1.3.0 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from spleeter) (1.5.3)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting tensorflow==2.12.1 (from spleeter)
   Using cached tensorflow-2.12.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.4 kB)
-Requirement already satisfied: tensorflow-io-gcs-filesystem==0.32.0 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from spleeter) (0.32.0)
-Requirement already satisfied: typer&lt;0.4.0,&gt;=0.3.2 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from spleeter) (0.3.2)
-Requirement already satisfied: absl-py&gt;=1.0.0 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from tensorflow==2.12.1-&gt;spleeter) (2.4.0)
-Requirement already satisfied: astunparse&gt;=1.6.0 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from tensorflow==2.12.1-&gt;spleeter) (1.6.3)
-Requirement already satisfied: flatbuffers&gt;=2.0 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from tensorflow==2.12.1-&gt;spleeter) (25.12.19)
-Requirement already satisfied: gast&lt;=0.4.0,&gt;=0.2.1 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from tensorflow==2.12.1-&gt;spleeter) (0.4.0)
-Requirement already satisfied: google-pasta&gt;=0.1.1 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from tensorflow==2.12.1-&gt;spleeter) (0.2.0)
-Requirement already satisfied: grpcio&lt;2.0,&gt;=1.24.3 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from tensorflow==2.12.1-&gt;spleeter) (1.74.0)
-Requirement already satisfied: h5py&gt;=2.9.0 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from tensorflow==2.12.1-&gt;spleeter) (3.15.1)
-Requirement already satisfied: jax&gt;=0.3.15 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from tensorflow==2.12.1-&gt;spleeter) (0.4.38)
-Collecting keras&lt;2.13,&gt;=2.12.0 (from tensorflow==2.12.1-&gt;spleeter)
-  Using cached keras-2.12.0-py2.py3-none-any.whl.metadata (1.4 kB)
-Requirement already satisfied: libclang&gt;=13.0.0 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from tensorflow==2.12.1-&gt;spleeter) (18.1.1)
+Requirement already satisfied: tensorflow-io-gcs-filesystem==0.32.0 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from spleeter) (0.32.0)
+Requirement already satisfied: typer&lt;0.4.0,&gt;=0.3.2 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from spleeter) (0.3.2)
+Requirement already satisfied: absl-py&gt;=1.0.0 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from tensorflow==2.12.1-&gt;spleeter) (2.5.0)
+Requirement already satisfied: astunparse&gt;=1.6.0 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from tensorflow==2.12.1-&gt;spleeter) (1.6.3)
+Requirement already satisfied: flatbuffers&gt;=2.0 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from tensorflow==2.12.1-&gt;spleeter) (25.12.19)
+Requirement already satisfied: gast&lt;=0.4.0,&gt;=0.2.1 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from tensorflow==2.12.1-&gt;spleeter) (0.4.0)
+Requirement already satisfied: google-pasta&gt;=0.1.1 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from tensorflow==2.12.1-&gt;spleeter) (0.2.0)
+Requirement already satisfied: grpcio&lt;2.0,&gt;=1.24.3 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from tensorflow==2.12.1-&gt;spleeter) (1.74.0)
+Requirement already satisfied: h5py&gt;=2.9.0 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from tensorflow==2.12.1-&gt;spleeter) (3.16.0)
+Requirement already satisfied: jax&gt;=0.3.15 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from tensorflow==2.12.1-&gt;spleeter) (0.4.38)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: opt-einsum&gt;=2.3.2 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from tensorflow==2.12.1-&gt;spleeter) (3.4.0)
-Requirement already satisfied: packaging in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from tensorflow==2.12.1-&gt;spleeter) (26.0)
-Requirement already satisfied: protobuf!=4.21.0,!=4.21.1,!=4.21.2,!=4.21.3,!=4.21.4,!=4.21.5,&lt;5.0.0dev,&gt;=3.20.3 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from tensorflow==2.12.1-&gt;spleeter) (4.25.8)
-Requirement already satisfied: setuptools in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from tensorflow==2.12.1-&gt;spleeter) (79.0.1)
-Requirement already satisfied: six&gt;=1.12.0 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from tensorflow==2.12.1-&gt;spleeter) (1.17.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting keras&lt;2.13,&gt;=2.12.0 (from tensorflow==2.12.1-&gt;spleeter)
+  Using cached keras-2.12.0-py2.py3-none-any.whl.metadata (1.4 kB)
+Requirement already satisfied: libclang&gt;=13.0.0 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from tensorflow==2.12.1-&gt;spleeter) (18.1.1)
+Requirement already satisfied: opt-einsum&gt;=2.3.2 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from tensorflow==2.12.1-&gt;spleeter) (3.4.0)
+Requirement already satisfied: packaging in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from tensorflow==2.12.1-&gt;spleeter) (26.3)
+Requirement already satisfied: protobuf!=4.21.0,!=4.21.1,!=4.21.2,!=4.21.3,!=4.21.4,!=4.21.5,&lt;5.0.0dev,&gt;=3.20.3 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from tensorflow==2.12.1-&gt;spleeter) (4.25.9)
+Requirement already satisfied: setuptools in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from tensorflow==2.12.1-&gt;spleeter) (79.0.1)
+Requirement already satisfied: six&gt;=1.12.0 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from tensorflow==2.12.1-&gt;spleeter) (1.17.0)
 Collecting tensorboard&lt;2.13,&gt;=2.12 (from tensorflow==2.12.1-&gt;spleeter)
   Using cached tensorboard-2.12.3-py3-none-any.whl.metadata (1.8 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting tensorflow-estimator&lt;2.13,&gt;=2.12.0 (from tensorflow==2.12.1-&gt;spleeter)
+Collecting tensorflow-estimator&lt;2.13,&gt;=2.12.0 (from tensorflow==2.12.1-&gt;spleeter)
   Using cached tensorflow_estimator-2.12.0-py2.py3-none-any.whl.metadata (1.3 kB)
-Requirement already satisfied: termcolor&gt;=1.1.0 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from tensorflow==2.12.1-&gt;spleeter) (3.3.0)
-Requirement already satisfied: typing-extensions&lt;4.6.0,&gt;=3.6.6 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from tensorflow==2.12.1-&gt;spleeter) (4.5.0)
-Requirement already satisfied: wrapt&lt;1.15,&gt;=1.11.0 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from tensorflow==2.12.1-&gt;spleeter) (1.14.2)
-Requirement already satisfied: future in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from ffmpeg-python&lt;0.3.0,&gt;=0.2.0-&gt;spleeter) (1.0.0)
-Requirement already satisfied: certifi in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from httpx&lt;0.20.0,&gt;=0.19.0-&gt;httpx[http2]&lt;0.20.0,&gt;=0.19.0-&gt;spleeter) (2026.1.4)
-Requirement already satisfied: charset-normalizer in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from httpx&lt;0.20.0,&gt;=0.19.0-&gt;httpx[http2]&lt;0.20.0,&gt;=0.19.0-&gt;spleeter) (3.4.4)
-Requirement already satisfied: sniffio in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from httpx&lt;0.20.0,&gt;=0.19.0-&gt;httpx[http2]&lt;0.20.0,&gt;=0.19.0-&gt;spleeter) (1.3.1)
-Requirement already satisfied: rfc3986&lt;2,&gt;=1.3 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from rfc3986[idna2008]&lt;2,&gt;=1.3-&gt;httpx&lt;0.20.0,&gt;=0.19.0-&gt;httpx[http2]&lt;0.20.0,&gt;=0.19.0-&gt;spleeter) (1.5.0)
-Requirement already satisfied: httpcore&lt;0.14.0,&gt;=0.13.3 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from httpx&lt;0.20.0,&gt;=0.19.0-&gt;httpx[http2]&lt;0.20.0,&gt;=0.19.0-&gt;spleeter) (0.13.7)
-Requirement already satisfied: h11&lt;0.13,&gt;=0.11 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from httpcore&lt;0.14.0,&gt;=0.13.3-&gt;httpx&lt;0.20.0,&gt;=0.19.0-&gt;httpx[http2]&lt;0.20.0,&gt;=0.19.0-&gt;spleeter) (0.12.0)
-Requirement already satisfied: anyio==3.* in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from httpcore&lt;0.14.0,&gt;=0.13.3-&gt;httpx&lt;0.20.0,&gt;=0.19.0-&gt;httpx[http2]&lt;0.20.0,&gt;=0.19.0-&gt;spleeter) (3.7.1)
-Requirement already satisfied: idna&gt;=2.8 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from anyio==3.*-&gt;httpcore&lt;0.14.0,&gt;=0.13.3-&gt;httpx&lt;0.20.0,&gt;=0.19.0-&gt;httpx[http2]&lt;0.20.0,&gt;=0.19.0-&gt;spleeter) (3.11)
-Requirement already satisfied: h2&lt;5,&gt;=3 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from httpx[http2]&lt;0.20.0,&gt;=0.19.0-&gt;spleeter) (4.3.0)
-Requirement already satisfied: hyperframe&lt;7,&gt;=6.1 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from h2&lt;5,&gt;=3-&gt;httpx[http2]&lt;0.20.0,&gt;=0.19.0-&gt;spleeter) (6.1.0)
-Requirement already satisfied: hpack&lt;5,&gt;=4.1 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from h2&lt;5,&gt;=3-&gt;httpx[http2]&lt;0.20.0,&gt;=0.19.0-&gt;spleeter) (4.1.0)
-Requirement already satisfied: scipy in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from norbert&lt;0.3.0,&gt;=0.2.1-&gt;spleeter) (1.15.3)
-Requirement already satisfied: python-dateutil&gt;=2.8.1 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from pandas&lt;2.0.0,&gt;=1.3.0-&gt;spleeter) (2.9.0.post0)
-Requirement already satisfied: pytz&gt;=2020.1 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from pandas&lt;2.0.0,&gt;=1.3.0-&gt;spleeter) (2025.2)
-Requirement already satisfied: google-auth&lt;3,&gt;=1.6.3 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from tensorboard&lt;2.13,&gt;=2.12-&gt;tensorflow==2.12.1-&gt;spleeter) (2.48.0)
-Requirement already satisfied: google-auth-oauthlib&lt;1.1,&gt;=0.5 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from tensorboard&lt;2.13,&gt;=2.12-&gt;tensorflow==2.12.1-&gt;spleeter) (1.0.0)
-Requirement already satisfied: markdown&gt;=2.6.8 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from tensorboard&lt;2.13,&gt;=2.12-&gt;tensorflow==2.12.1-&gt;spleeter) (3.10.2)
-Requirement already satisfied: requests&lt;3,&gt;=2.21.0 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from tensorboard&lt;2.13,&gt;=2.12-&gt;tensorflow==2.12.1-&gt;spleeter) (2.32.5)
-Requirement already satisfied: tensorboard-data-server&lt;0.8.0,&gt;=0.7.0 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from tensorboard&lt;2.13,&gt;=2.12-&gt;tensorflow==2.12.1-&gt;spleeter) (0.7.2)
-Requirement already satisfied: werkzeug&gt;=1.0.1 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from tensorboard&lt;2.13,&gt;=2.12-&gt;tensorflow==2.12.1-&gt;spleeter) (3.1.6)
-Requirement already satisfied: wheel&gt;=0.26 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from tensorboard&lt;2.13,&gt;=2.12-&gt;tensorflow==2.12.1-&gt;spleeter) (0.46.3)
-Requirement already satisfied: pyasn1-modules&gt;=0.2.1 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from google-auth&lt;3,&gt;=1.6.3-&gt;tensorboard&lt;2.13,&gt;=2.12-&gt;tensorflow==2.12.1-&gt;spleeter) (0.4.2)
-Requirement already satisfied: cryptography&gt;=38.0.3 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from google-auth&lt;3,&gt;=1.6.3-&gt;tensorboard&lt;2.13,&gt;=2.12-&gt;tensorflow==2.12.1-&gt;spleeter) (46.0.5)
-Requirement already satisfied: rsa&lt;5,&gt;=3.1.4 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from google-auth&lt;3,&gt;=1.6.3-&gt;tensorboard&lt;2.13,&gt;=2.12-&gt;tensorflow==2.12.1-&gt;spleeter) (4.9.1)
-Requirement already satisfied: requests-oauthlib&gt;=0.7.0 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from google-auth-oauthlib&lt;1.1,&gt;=0.5-&gt;tensorboard&lt;2.13,&gt;=2.12-&gt;tensorflow==2.12.1-&gt;spleeter) (2.0.0)
-Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from requests&lt;3,&gt;=2.21.0-&gt;tensorboard&lt;2.13,&gt;=2.12-&gt;tensorflow==2.12.1-&gt;spleeter) (2.6.3)
-Requirement already satisfied: pyasn1&gt;=0.1.3 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from rsa&lt;5,&gt;=3.1.4-&gt;google-auth&lt;3,&gt;=1.6.3-&gt;tensorboard&lt;2.13,&gt;=2.12-&gt;tensorflow==2.12.1-&gt;spleeter) (0.6.2)
+Requirement already satisfied: termcolor&gt;=1.1.0 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from tensorflow==2.12.1-&gt;spleeter) (3.3.0)
+Requirement already satisfied: typing-extensions&lt;4.6.0,&gt;=3.6.6 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from tensorflow==2.12.1-&gt;spleeter) (4.5.0)
+Requirement already satisfied: wrapt&lt;1.15,&gt;=1.11.0 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from tensorflow==2.12.1-&gt;spleeter) (1.14.2)
+Requirement already satisfied: future in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from ffmpeg-python&lt;0.3.0,&gt;=0.2.0-&gt;spleeter) (1.0.0)
+Requirement already satisfied: certifi in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from httpx&lt;0.20.0,&gt;=0.19.0-&gt;httpx[http2]&lt;0.20.0,&gt;=0.19.0-&gt;spleeter) (2026.7.22)
+Requirement already satisfied: charset-normalizer in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from httpx&lt;0.20.0,&gt;=0.19.0-&gt;httpx[http2]&lt;0.20.0,&gt;=0.19.0-&gt;spleeter) (3.5.1)
+Requirement already satisfied: sniffio in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from httpx&lt;0.20.0,&gt;=0.19.0-&gt;httpx[http2]&lt;0.20.0,&gt;=0.19.0-&gt;spleeter) (1.3.1)
+Requirement already satisfied: rfc3986&lt;2,&gt;=1.3 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from rfc3986[idna2008]&lt;2,&gt;=1.3-&gt;httpx&lt;0.20.0,&gt;=0.19.0-&gt;httpx[http2]&lt;0.20.0,&gt;=0.19.0-&gt;spleeter) (1.5.0)
+Requirement already satisfied: httpcore&lt;0.14.0,&gt;=0.13.3 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from httpx&lt;0.20.0,&gt;=0.19.0-&gt;httpx[http2]&lt;0.20.0,&gt;=0.19.0-&gt;spleeter) (0.13.7)
+Requirement already satisfied: h11&lt;0.13,&gt;=0.11 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from httpcore&lt;0.14.0,&gt;=0.13.3-&gt;httpx&lt;0.20.0,&gt;=0.19.0-&gt;httpx[http2]&lt;0.20.0,&gt;=0.19.0-&gt;spleeter) (0.12.0)
+Requirement already satisfied: anyio==3.* in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from httpcore&lt;0.14.0,&gt;=0.13.3-&gt;httpx&lt;0.20.0,&gt;=0.19.0-&gt;httpx[http2]&lt;0.20.0,&gt;=0.19.0-&gt;spleeter) (3.7.1)
+Requirement already satisfied: idna&gt;=2.8 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from anyio==3.*-&gt;httpcore&lt;0.14.0,&gt;=0.13.3-&gt;httpx&lt;0.20.0,&gt;=0.19.0-&gt;httpx[http2]&lt;0.20.0,&gt;=0.19.0-&gt;spleeter) (3.20)
+Requirement already satisfied: h2&lt;5,&gt;=3 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from httpx[http2]&lt;0.20.0,&gt;=0.19.0-&gt;spleeter) (4.4.1)
+Requirement already satisfied: hyperframe&lt;7,&gt;=6.1 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from h2&lt;5,&gt;=3-&gt;httpx[http2]&lt;0.20.0,&gt;=0.19.0-&gt;spleeter) (6.1.0)
+Requirement already satisfied: hpack&lt;5,&gt;=4.2 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from h2&lt;5,&gt;=3-&gt;httpx[http2]&lt;0.20.0,&gt;=0.19.0-&gt;spleeter) (4.2.0)
+Requirement already satisfied: scipy in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from norbert&lt;0.3.0,&gt;=0.2.1-&gt;spleeter) (1.15.3)
+Requirement already satisfied: python-dateutil&gt;=2.8.1 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from pandas&lt;2.0.0,&gt;=1.3.0-&gt;spleeter) (2.9.0.post0)
+Requirement already satisfied: pytz&gt;=2020.1 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from pandas&lt;2.0.0,&gt;=1.3.0-&gt;spleeter) (2026.3.post1)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: click&lt;7.2.0,&gt;=7.1.1 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from typer&lt;0.4.0,&gt;=0.3.2-&gt;spleeter) (7.1.2)
-Requirement already satisfied: cffi&gt;=2.0.0 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from cryptography&gt;=38.0.3-&gt;google-auth&lt;3,&gt;=1.6.3-&gt;tensorboard&lt;2.13,&gt;=2.12-&gt;tensorflow==2.12.1-&gt;spleeter) (2.0.0)
-Requirement already satisfied: pycparser in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from cffi&gt;=2.0.0-&gt;cryptography&gt;=38.0.3-&gt;google-auth&lt;3,&gt;=1.6.3-&gt;tensorboard&lt;2.13,&gt;=2.12-&gt;tensorflow==2.12.1-&gt;spleeter) (3.0)
-Requirement already satisfied: jaxlib&lt;=0.4.38,&gt;=0.4.38 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from jax&gt;=0.3.15-&gt;tensorflow==2.12.1-&gt;spleeter) (0.4.38)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: google-auth&lt;3,&gt;=1.6.3 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from tensorboard&lt;2.13,&gt;=2.12-&gt;tensorflow==2.12.1-&gt;spleeter) (2.58.0)
+Requirement already satisfied: google-auth-oauthlib&lt;1.1,&gt;=0.5 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from tensorboard&lt;2.13,&gt;=2.12-&gt;tensorflow==2.12.1-&gt;spleeter) (1.0.0)
+Requirement already satisfied: markdown&gt;=2.6.8 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from tensorboard&lt;2.13,&gt;=2.12-&gt;tensorflow==2.12.1-&gt;spleeter) (3.10.3)
+Requirement already satisfied: requests&lt;3,&gt;=2.21.0 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from tensorboard&lt;2.13,&gt;=2.12-&gt;tensorflow==2.12.1-&gt;spleeter) (2.34.2)
+Requirement already satisfied: tensorboard-data-server&lt;0.8.0,&gt;=0.7.0 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from tensorboard&lt;2.13,&gt;=2.12-&gt;tensorflow==2.12.1-&gt;spleeter) (0.7.2)
+Requirement already satisfied: werkzeug&gt;=1.0.1 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from tensorboard&lt;2.13,&gt;=2.12-&gt;tensorflow==2.12.1-&gt;spleeter) (3.1.8)
+Requirement already satisfied: wheel&gt;=0.26 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from tensorboard&lt;2.13,&gt;=2.12-&gt;tensorflow==2.12.1-&gt;spleeter) (0.48.0)
+Requirement already satisfied: pyasn1-modules&gt;=0.2.1 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from google-auth&lt;3,&gt;=1.6.3-&gt;tensorboard&lt;2.13,&gt;=2.12-&gt;tensorflow==2.12.1-&gt;spleeter) (0.4.2)
+Requirement already satisfied: cryptography&gt;=38.0.3 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from google-auth&lt;3,&gt;=1.6.3-&gt;tensorboard&lt;2.13,&gt;=2.12-&gt;tensorflow==2.12.1-&gt;spleeter) (50.0.1)
+Requirement already satisfied: requests-oauthlib&gt;=0.7.0 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from google-auth-oauthlib&lt;1.1,&gt;=0.5-&gt;tensorboard&lt;2.13,&gt;=2.12-&gt;tensorflow==2.12.1-&gt;spleeter) (2.0.0)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.26 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from requests&lt;3,&gt;=2.21.0-&gt;tensorboard&lt;2.13,&gt;=2.12-&gt;tensorflow==2.12.1-&gt;spleeter) (2.8.0)
+Requirement already satisfied: click&lt;7.2.0,&gt;=7.1.1 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from typer&lt;0.4.0,&gt;=0.3.2-&gt;spleeter) (7.1.2)
+Requirement already satisfied: cffi&gt;=2.0.0 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from cryptography&gt;=38.0.3-&gt;google-auth&lt;3,&gt;=1.6.3-&gt;tensorboard&lt;2.13,&gt;=2.12-&gt;tensorflow==2.12.1-&gt;spleeter) (2.1.1)
+Requirement already satisfied: pycparser in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from cffi&gt;=2.0.0-&gt;cryptography&gt;=38.0.3-&gt;google-auth&lt;3,&gt;=1.6.3-&gt;tensorboard&lt;2.13,&gt;=2.12-&gt;tensorflow==2.12.1-&gt;spleeter) (3.0)
+Requirement already satisfied: jaxlib&lt;=0.4.38,&gt;=0.4.38 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from jax&gt;=0.3.15-&gt;tensorflow==2.12.1-&gt;spleeter) (0.4.38)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting ml_dtypes&gt;=0.4.0 (from jax&gt;=0.3.15-&gt;tensorflow==2.12.1-&gt;spleeter)
+  Using cached ml_dtypes-0.6.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (8.8 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: pip is looking at multiple versions of ml-dtypes to determine which version is compatible with other requirements. This could take a while.
   Using cached ml_dtypes-0.5.4-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (8.9 kB)
-Requirement already satisfied: oauthlib&gt;=3.0.0 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from requests-oauthlib&gt;=0.7.0-&gt;google-auth-oauthlib&lt;1.1,&gt;=0.5-&gt;tensorboard&lt;2.13,&gt;=2.12-&gt;tensorflow==2.12.1-&gt;spleeter) (3.3.1)
-Requirement already satisfied: markupsafe&gt;=2.1.1 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (from werkzeug&gt;=1.0.1-&gt;tensorboard&lt;2.13,&gt;=2.12-&gt;tensorflow==2.12.1-&gt;spleeter) (3.0.3)
+Requirement already satisfied: pyasn1&lt;0.7.0,&gt;=0.6.1 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from pyasn1-modules&gt;=0.2.1-&gt;google-auth&lt;3,&gt;=1.6.3-&gt;tensorboard&lt;2.13,&gt;=2.12-&gt;tensorflow==2.12.1-&gt;spleeter) (0.6.4)
+Requirement already satisfied: oauthlib&gt;=3.0.0 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from requests-oauthlib&gt;=0.7.0-&gt;google-auth-oauthlib&lt;1.1,&gt;=0.5-&gt;tensorboard&lt;2.13,&gt;=2.12-&gt;tensorflow==2.12.1-&gt;spleeter) (3.3.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: markupsafe&gt;=2.1.1 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (from werkzeug&gt;=1.0.1-&gt;tensorboard&lt;2.13,&gt;=2.12-&gt;tensorflow==2.12.1-&gt;spleeter) (3.0.3)
 Using cached tensorflow-2.12.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (585.9 MB)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using cached keras-2.12.0-py2.py3-none-any.whl (1.7 MB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using cached tensorboard-2.12.3-py3-none-any.whl (5.6 MB)
+Using cached tensorboard-2.12.3-py3-none-any.whl (5.6 MB)
 Using cached tensorflow_estimator-2.12.0-py2.py3-none-any.whl (440 kB)
 Using cached ml_dtypes-0.5.4-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (5.0 MB)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: tensorflow-estimator, ml_dtypes, keras, tensorboard, tensorflow
-?25l
-  Attempting uninstall: tensorflow-estimator
-
+?25l  Attempting uninstall: tensorflow-estimator
     Found existing installation: tensorflow-estimator 2.15.0
-
     Uninstalling tensorflow-estimator-2.15.0:
-
-      Successfully uninstalled tensorflow-estimator-2.15.0
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0/5</span> [tensorflow-estimator]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Successfully uninstalled tensorflow-estimator-2.15.0
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Attempting uninstall: ml_dtypes
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0/5</span> [tensorflow-estimator]
     Found existing installation: ml-dtypes 0.2.0
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0/5</span> [tensorflow-estimator]
     Uninstalling ml-dtypes-0.2.0:
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0/5</span> [tensorflow-estimator]
       Successfully uninstalled ml-dtypes-0.2.0
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0/5</span> [tensorflow-estimator]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1/5</span> [ml_dtypes]
-  Attempting uninstall: keras
-   ━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1/5</span> [ml_dtypes]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Attempting uninstall: keras
     Found existing installation: keras 2.15.0
-   ━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1/5</span> [ml_dtypes]
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Uninstalling keras-2.15.0:
-   ━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1/5</span> [ml_dtypes]
-      Successfully uninstalled keras-2.15.0
-   ━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1/5</span> [ml_dtypes]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2/5</span> [keras]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2/5</span> [keras]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2/5</span> [keras]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2/5</span> [keras]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2/5</span> [keras]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Successfully uninstalled keras-2.15.0
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Attempting uninstall: tensorboard
-   ━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2/5</span> [keras]
     Found existing installation: tensorboard 2.15.2
-   ━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2/5</span> [keras]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [tensorboard]
-    Uninstalling tensorboard-2.15.2:
-   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [tensorboard]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Uninstalling tensorboard-2.15.2:
       Successfully uninstalled tensorboard-2.15.2
-   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [tensorboard]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [tensorboard]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [tensorboard]
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Attempting uninstall: tensorflow
-   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [tensorboard]
     Found existing installation: tensorflow 2.15.0
-   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [tensorboard]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-    Uninstalling tensorflow-2.15.0:
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Uninstalling tensorflow-2.15.0:
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Successfully uninstalled tensorflow-2.15.0
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [tensorflow]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">5/5</span> [tensorflow]
-?25h
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25h
 Successfully installed keras-2.12.0 ml_dtypes-0.5.4 tensorboard-2.12.3 tensorflow-2.12.1 tensorflow-estimator-2.12.0
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: keras&lt;3 in /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages (2.12.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: keras&lt;3 in /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages (2.12.0)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
@@ -1078,14 +822,14 @@ Successfully installed keras-2.12.0 ml_dtypes-0.5.4 tensorboard-2.12.3 tensorflo
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">tarfile</span>
 
 <span class="c1"># Open file</span>
-<span class="n">file</span> <span class="o">=</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;2stems.tar.gz&quot;</span><span class="p">)</span>
+<span class="n">file</span> <span class="o">=</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">"2stems.tar.gz"</span><span class="p">)</span>
 
 <span class="c1"># Creating directory where spleeter looks for models by default</span>
-<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s2">&quot;pretrained_models/&quot;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s2">"pretrained_models/"</span><span class="p">)</span>
 
 <span class="c1"># Extracting files in tar</span>
 <span class="n">file</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;pretrained_models&quot;</span><span class="p">,</span> <span class="s2">&quot;2stems&quot;</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"pretrained_models"</span><span class="p">,</span> <span class="s2">"2stems"</span><span class="p">)</span>
 <span class="p">)</span>
 
 <span class="c1"># Closing file</span>
@@ -1099,11 +843,11 @@ Successfully installed keras-2.12.0 ml_dtypes-0.5.4 tensorboard-2.12.3 tensorflo
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Disabling tensorflow warnings and debugging info</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span> 
-<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;TF_CPP_MIN_LOG_LEVEL&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;3&quot;</span> 
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"TF_CPP_MIN_LOG_LEVEL"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"3"</span> 
 
 <span class="c1"># Importing tensorflow and disabling GPU usage</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>
-<span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">set_visible_devices</span><span class="p">([],</span> <span class="s2">&quot;GPU&quot;</span><span class="p">)</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">set_visible_devices</span><span class="p">([],</span> <span class="s2">"GPU"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1119,7 +863,7 @@ Successfully installed keras-2.12.0 ml_dtypes-0.5.4 tensorboard-2.12.3 tensorflo
 <span class="kn">from</span><span class="w"> </span><span class="nn">spleeter.separator</span><span class="w"> </span><span class="kn">import</span> <span class="n">Separator</span>
 
 <span class="c1"># Load default 2-stem spleeter separation</span>
-<span class="n">separator</span> <span class="o">=</span> <span class="n">Separator</span><span class="p">(</span><span class="s2">&quot;spleeter:2stems&quot;</span><span class="p">)</span>
+<span class="n">separator</span> <span class="o">=</span> <span class="n">Separator</span><span class="p">(</span><span class="s2">"spleeter:2stems"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1132,16 +876,16 @@ Successfully installed keras-2.12.0 ml_dtypes-0.5.4 tensorboard-2.12.3 tensorflo
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;saraga_carnatic&#39;,
- &#39;saraga_hindustani&#39;,
- &#39;mridangam_stroke&#39;,
- &#39;four_way_tabla&#39;,
- &#39;compmusic_carnatic_rhythm&#39;,
- &#39;compmusic_hindustani_rhythm&#39;,
- &#39;compmusic_raga&#39;,
- &#39;compmusic_indian_tonic&#39;,
- &#39;compmusic_carnatic_varnam&#39;,
- &#39;scms&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>['saraga_carnatic',
+ 'saraga_hindustani',
+ 'mridangam_stroke',
+ 'four_way_tabla',
+ 'compmusic_carnatic_rhythm',
+ 'compmusic_hindustani_rhythm',
+ 'compmusic_raga',
+ 'compmusic_indian_tonic',
+ 'compmusic_carnatic_varnam',
+ 'scms']
 </pre></div>
 </div>
 </div>
@@ -1157,13 +901,13 @@ Successfully installed keras-2.12.0 ml_dtypes-0.5.4 tensorboard-2.12.3 tensorflo
 
 <span class="c1">#from compiam import load_corpora</span>
 <span class="c1">#corpora = load_corpora(</span>
-<span class="c1">#    &quot;hindustani&quot;,</span>
+<span class="c1">#    "hindustani",</span>
 <span class="c1">#    cc=False,  # Indicating we import de private collection</span>
-<span class="c1">#    token=&quot;&lt;your-access-token&gt;&quot;,</span>
+<span class="c1">#    token="&lt;your-access-token&gt;",</span>
 <span class="c1">#</span>
 <span class="c1">#corpora.download_mp3(</span>
-<span class="c1">#    &quot;59c88c32-0bde-433b-b194-0f65281e5714&quot;,</span>
-<span class="c1">#    &quot;os.path.join(&quot;..&quot;, &quot;audio&quot;)</span>
+<span class="c1">#    "59c88c32-0bde-433b-b194-0f65281e5714",</span>
+<span class="c1">#    "os.path.join("..", "audio")</span>
 <span class="c1">#)</span>
 </pre></div>
 </div>
@@ -1189,9 +933,9 @@ Successfully installed keras-2.12.0 ml_dtypes-0.5.4 tensorboard-2.12.3 tensorflo
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Separating file</span>
 <span class="n">separator</span><span class="o">.</span><span class="n">separate_to_file</span><span class="p">(</span>
     <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-        <span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;audio&quot;</span><span class="p">,</span> <span class="s2">&quot;59c88c32-0bde-433b-b194-0f65281e5714.mp3&quot;</span>
+        <span class="s2">".."</span><span class="p">,</span> <span class="s2">"audio"</span><span class="p">,</span> <span class="s2">"59c88c32-0bde-433b-b194-0f65281e5714.mp3"</span>
     <span class="p">),</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;audio&quot;</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">".."</span><span class="p">,</span> <span class="s2">"audio"</span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -1202,14 +946,14 @@ Successfully installed keras-2.12.0 ml_dtypes-0.5.4 tensorboard-2.12.3 tensorflo
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dbs</span><span class="o">.</span><span class="n">predict_stm</span><span class="p">(</span>
     <span class="n">input_data</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-        <span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;audio&quot;</span><span class="p">,</span> <span class="s2">&quot;59c88c32-0bde-433b-b194-0f65281e5714.mp3&quot;</span>
+        <span class="s2">".."</span><span class="p">,</span> <span class="s2">"audio"</span><span class="p">,</span> <span class="s2">"59c88c32-0bde-433b-b194-0f65281e5714.mp3"</span>
     <span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/daf791a75330944379e0939e9464db797c9e4bf2440c5007d58172fa86c8a1f9.png" src="../_images/daf791a75330944379e0939e9464db797c9e4bf2440c5007d58172fa86c8a1f9.png" />
+<img alt="../_images/d3ea04c9482142361b69ab031826ea460b7641f9a8c9bd49d2aeb77b11ff3b8b.png" src="../_images/d3ea04c9482142361b69ab031826ea460b7641f9a8c9bd49d2aeb77b11ff3b8b.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3, 3, 3, ..., 1, 0, 0])
 </pre></div>
 </div>
@@ -1224,7 +968,7 @@ Successfully installed keras-2.12.0 ml_dtypes-0.5.4 tensorboard-2.12.3 tensorflo
 
 <span class="n">vocals</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
     <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-        <span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;audio&quot;</span><span class="p">,</span> <span class="s2">&quot;59c88c32-0bde-433b-b194-0f65281e5714.mp3&quot;</span>
+        <span class="s2">".."</span><span class="p">,</span> <span class="s2">"audio"</span><span class="p">,</span> <span class="s2">"59c88c32-0bde-433b-b194-0f65281e5714.mp3"</span>
     <span class="p">),</span>
 <span class="p">)</span>
 </pre></div>
@@ -1290,12 +1034,12 @@ Successfully installed keras-2.12.0 ml_dtypes-0.5.4 tensorboard-2.12.3 tensorflo
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../rhythmic_analysis/tcn_carnatic.html"
+       href="../rhythmic_analysis/beat_tracking.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">TCN Carnatic</p>
+        <p class="prev-next-title">Beat tracking</p>
       </div>
     </a>
     <a class="right-next"

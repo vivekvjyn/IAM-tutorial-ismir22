@@ -33,7 +33,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
@@ -214,7 +214,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Meter analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="percussion-transcription.html">Percussion transcription</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tcn_carnatic.html">TCN Carnatic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beat_tracking.html">Beat tracking</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Structure Analysis</span></p>
 <ul class="nav bd-sidenav">
@@ -499,7 +499,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Installing (if not) and importing compiam to the project</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">importlib.util</span>
-<span class="k">if</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">find_spec</span><span class="p">(</span><span class="s1">&#39;compiam&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">find_spec</span><span class="p">(</span><span class="s1">'compiam'</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
     <span class="c1">## Bear in mind this will only run in a jupyter notebook / Collab session</span>
     <span class="o">%</span><span class="k">pip</span> install compiam==0.4.1
 <span class="kn">import</span><span class="w"> </span><span class="nn">compiam</span>
@@ -510,7 +510,7 @@ document.write(`
 <span class="kn">import</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ipd</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">'ignore'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -531,9 +531,9 @@ document.write(`
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cmr</span> <span class="o">=</span> <span class="n">compiam</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span>
-    <span class="s2">&quot;compmusic_carnatic_rhythm&quot;</span><span class="p">,</span>
-    <span class="n">data_home</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;../audio/mir_datasets&quot;</span><span class="p">),</span>
-    <span class="n">version</span><span class="o">=</span><span class="s2">&quot;full_dataset&quot;</span>
+    <span class="s2">"compmusic_carnatic_rhythm"</span><span class="p">,</span>
+    <span class="n">data_home</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"../audio/mir_datasets"</span><span class="p">),</span>
+    <span class="n">version</span><span class="o">=</span><span class="s2">"full_dataset"</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -588,7 +588,7 @@ CompMusic Carnatic Music Rhythm class
 <p>Reading through the dataset details we observe the available data for the tracks in the dataloader. We will load the tracks and select the specific track we have selected for tutoring purposes. Bear in mind that you can access the list of identifiers in the dataloader with the <code class="docutils literal notranslate"><span class="pre">.track_ids</span></code> attribute.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">track</span> <span class="o">=</span> <span class="n">cmr</span><span class="o">.</span><span class="n">load_tracks</span><span class="p">()[</span><span class="s2">&quot;10001&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">track</span> <span class="o">=</span> <span class="n">cmr</span><span class="o">.</span><span class="n">load_tracks</span><span class="p">()[</span><span class="s2">"10001"</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -630,7 +630,7 @@ CompMusic Carnatic Music Rhythm class
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;s&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>'s'
 </pre></div>
 </div>
 </div>
@@ -657,7 +657,7 @@ CompMusic Carnatic Music Rhythm class
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;8/4&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>'8/4'
 </pre></div>
 </div>
 </div>
@@ -670,8 +670,8 @@ CompMusic Carnatic Music Rhythm class
 <p>Let’s first listen to the audio example we are going to be using to showcase this tool. We will just load the first 30 seconds (we can just slice the audio array from 0 to <span class="math notranslate nohighlight">\(f_{s} * sec\)</span>, being <span class="math notranslate nohighlight">\(sec\)</span> the integer  number of seconds to get).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s listen to 30 seconds of the input audio</span>
-<span class="n">track</span> <span class="o">=</span> <span class="n">cmr</span><span class="o">.</span><span class="n">load_tracks</span><span class="p">()[</span><span class="s2">&quot;10001&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let's listen to 30 seconds of the input audio</span>
+<span class="n">track</span> <span class="o">=</span> <span class="n">cmr</span><span class="o">.</span><span class="n">load_tracks</span><span class="p">()[</span><span class="s2">"10001"</span><span class="p">]</span>
 <span class="n">audio</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">track</span><span class="o">.</span><span class="n">audio</span>
 <span class="n">ipd</span><span class="o">.</span><span class="n">Audio</span><span class="p">(</span>
     <span class="n">data</span><span class="o">=</span><span class="n">audio</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">10</span><span class="o">*</span><span class="n">sr</span><span class="p">],</span>
@@ -694,7 +694,7 @@ CompMusic Carnatic Music Rhythm class
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We import the tool</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">compiam.rhythm.meter</span><span class="w"> </span><span class="kn">import</span> <span class="n">AksharaPulseTracker</span>
 
-<span class="c1"># Let&#39;s initialize an instance of the tool</span>
+<span class="c1"># Let's initialize an instance of the tool</span>
 <span class="n">apt</span> <span class="o">=</span> <span class="n">AksharaPulseTracker</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -716,7 +716,7 @@ CompMusic Carnatic Music Rhythm class
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;sections&#39;, &#39;aksharaPeriod&#39;, &#39;aksharaPulses&#39;, &#39;APcurve&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>['sections', 'aksharaPeriod', 'aksharaPulses', 'APcurve']
 </pre></div>
 </div>
 </div>
@@ -724,19 +724,19 @@ CompMusic Carnatic Music Rhythm class
 <p>Let’s now print out some details on each estimated aspect of the aksharas.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">predicted_aksharas</span><span class="p">[</span><span class="s1">&#39;sections&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">predicted_aksharas</span><span class="p">[</span><span class="s1">'sections'</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;startTime&#39;: [0.0], &#39;endTime&#39;: [148.979], &#39;label&#39;: &#39;Kriti&#39;}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{'startTime': [0.0], 'endTime': [148.979], 'label': 'Kriti'}
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">predicted_aksharas</span><span class="p">[</span><span class="s1">&#39;aksharaPeriod&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">predicted_aksharas</span><span class="p">[</span><span class="s1">'aksharaPeriod'</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -748,7 +748,7 @@ CompMusic Carnatic Music Rhythm class
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">predicted_aksharas</span><span class="p">[</span><span class="s1">&#39;aksharaPulses&#39;</span><span class="p">][:</span><span class="mi">4</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">predicted_aksharas</span><span class="p">[</span><span class="s1">'aksharaPulses'</span><span class="p">][:</span><span class="mi">4</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -763,7 +763,7 @@ CompMusic Carnatic Music Rhythm class
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">predicted_aksharas</span><span class="p">[</span><span class="s1">&#39;APcurve&#39;</span><span class="p">][:</span><span class="mi">4</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">predicted_aksharas</span><span class="p">[</span><span class="s1">'APcurve'</span><span class="p">][:</span><span class="mi">4</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -805,7 +805,7 @@ plot_waveform(input_data, t1, t2, labels=None, input_sr=44100, sr=44100, output_
 <p>We observe that the <code class="docutils literal notranslate"><span class="pre">labels</span></code> input variable in <code class="docutils literal notranslate"><span class="pre">plot_waveforms</span></code> needs to be a dict with the following format: <code class="docutils literal notranslate"><span class="pre">{time-step:</span> <span class="pre">label}</span></code>, while our estimation is basically a list of pulses. Therefore, we first need to convert the prediction into a dictionary. We take the predicted beats, convert these into a dictionary, and plot them on top of the waveform of the input signal again, in order to compare between the estimation and the ground-truth above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pulses</span> <span class="o">=</span> <span class="n">predicted_aksharas</span><span class="p">[</span><span class="s1">&#39;aksharaPulses&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pulses</span> <span class="o">=</span> <span class="n">predicted_aksharas</span><span class="p">[</span><span class="s1">'aksharaPulses'</span><span class="p">]</span>
 <span class="n">predicted_beats_dict</span> <span class="o">=</span> <span class="p">{</span>
     <span class="n">time_step</span><span class="p">:</span> <span class="n">idx</span> <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">time_step</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">pulses</span><span class="p">)</span>
 <span class="p">}</span>
@@ -824,7 +824,7 @@ plot_waveform(input_data, t1, t2, labels=None, input_sr=44100, sr=44100, output_
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 2000x500 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="../_images/8251bd14421964a5b499d47c56bc2ca885a1e89cd051fb6a27937cb0646fd015.png" src="../_images/8251bd14421964a5b499d47c56bc2ca885a1e89cd051fb6a27937cb0646fd015.png" />
+<img alt="../_images/1b3a57df71b73b57e87c9efb9c01ab8290e5f40399c644ae6f66f93f90f633ea.png" src="../_images/1b3a57df71b73b57e87c9efb9c01ab8290e5f40399c644ae6f66f93f90f633ea.png" />
 </div>
 </div>
 </section>
